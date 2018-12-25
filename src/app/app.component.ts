@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './service/user-service';
+import { UserService } from './service/user-service.service';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +11,13 @@ export class AppComponent implements OnInit {
 
   objekat = {};
   constructor(private userService: UserService) {
-    
+
   }
 
   ngOnInit() {
-    console.log(`evo me`);
-    this.userService.get().toPromise().then(data => {
+   /* this.userService.get().toPromise().then(data => {
       console.log('kao tu sam');
-      this.objekat = data});
+      this.objekat = data});*/
   }
 
-  stameni = "SUPCINA";
 }
