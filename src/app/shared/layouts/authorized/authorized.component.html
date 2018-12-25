@@ -1,0 +1,8 @@
+<div class="container" [ngClass]="status ? 'navExpanded' : 'notExpanded'">
+  <nav class="sidebar">
+    <ng-content select="itengine-menu"></ng-content>
+  </nav>
+  <section class="content">
+    <ng-content select="router-outlet"></ng-content>
+  </section>
+</div>

@@ -1,0 +1,86 @@
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+	<form [formGroup] = "registrationForm" >
+		<div class="panel panel-default">
+			<div class="panel-heading" align="center">REGISTRATION</div>
+				<div class="panel-body">
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="firstName" class="control-label">Name:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+							<input type="text" class="form-control" id="firstName" placeholder="First"  formControlName="firstName"/>
+						</div>
+						<div class="col-md-5 form-group input-group">
+							<input type="text" class="form-control" id="lastName" placeholder="Last"  formControlName="lastName"/>
+						</div>
+					</div>
+					<div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="email" class="control-label">E-mail:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="text" class="form-control" id="email" placeholder="Email"  formControlName="email"/>
+						</div>
+					</div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="password" class="control-label">Password:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="password" class="form-control" id="password" placeholder="Password"  formControlName="password1"/>
+						</div>
+					</div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="repeatPassword" class="control-label">Repeat password:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="password" class="form-control" id="repeatPassword" placeholder="Repeat password"  formControlName="password2"/>
+						</div>
+					</div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="city" class="control-label">City:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="text" class="form-control" id="city" placeholder="City"  formControlName="city"/>
+						</div>
+					</div>
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="phone" class="control-label">Phone:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+							<input type="text" class="form-control" id="phone" placeholder="Phone"  formControlName="phoneNumber"/>
+						</div>
+					</div>
+			</div>
+			<div class="panel-footer padding-top-12 padding-top-10" align="center">
+				<button type="submit" class="btn btn-success" (click)="signUp()">Register</button>
+			</div>
+		</div>
+	</form>
+ </div>
+
+
+<!--
+<div class="login">
+    <div class="inner-login">
+        <div class="login-form-wrapper">
+            <div class="login-form">
+                <form [formGroup]="registrationForm">
+                    <input formControlName="email" placeholder="{{'AUTH.FORM.EMAIL' | translate}}" type="text" />
+                    <input formControlName="password"  placeholder="{{'AUTH.FORM.PASSWORD' | translate}}" type="password" />
+                    <input formControlName="firstName" placeholder="{{'AUTH.FORM.FIRST_NAME' | translate}}" type="text" />
+                    <input formControlName="lastName"  placeholder="{{'AUTH.FORM.LAST_NAME' | translate}}" type="text" />
+                    <button class="btn btn-primary" [disabled]="!registrationForm.valid" (click)="signUp()">
+                      {{'AUTH.FORM.BTN_REGISTER' | translate}}
+                    </button>
+                    <button class="btn btn-primary" style="float: right;" (click)="goLogin()">
+                      {{'AUTH.FORM.BTN_LOGIN' | translate}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>-->

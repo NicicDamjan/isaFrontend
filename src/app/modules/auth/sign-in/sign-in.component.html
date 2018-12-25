@@ -1,0 +1,18 @@
+<div class="login">
+    <div class="inner-login">
+        <div class="login-form-wrapper">
+            <div class="login-form">
+                <form [formGroup]="authForm">
+                    <input formControlName="email" placeholder="{{'AUTH.FORM.EMAIL' | translate}}" type="text" />
+                    <input formControlName="password"  placeholder="{{'AUTH.FORM.PASSWORD' | translate}}" type="password" />
+                    <button class="btn btn-primary" [disabled]="!authForm.valid" type="submit" (click)="signIn()">
+                      {{'AUTH.FORM.BTN_LOGIN' | translate}}
+                    </button>
+                    <button class="btn btn-primary" style="float:right;" (click)="goRegister()">
+                        {{'AUTH.FORM.BTN_REGISTER' | translate}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
