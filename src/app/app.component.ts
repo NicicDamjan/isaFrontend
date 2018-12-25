@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './service/user-service.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -7,17 +7,14 @@ import { UserService } from './service/user-service.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'isaFrontend';
-
-  objekat = {};
-  constructor(private userService: UserService) {
-
-  }
+  
+  constructor(
+    private translateService: TranslateService
+  ) {}
 
   ngOnInit() {
-   /* this.userService.get().toPromise().then(data => {
-      console.log('kao tu sam');
-      this.objekat = data});*/
+    this.translateService.setDefaultLang('en');
+    this.translateService.use('en');
   }
 
 }

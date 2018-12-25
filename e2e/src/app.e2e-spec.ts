@@ -9,6 +9,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to isaFrontend!');
+    expect(page.getParagraphText()).toEqual('Welcome to hermes-angular!');
   });
 });

@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'roboto';
+}
+
+input,
+textarea {
+  box-shadow: none;
+  padding: 0 10px;
+  border: 0;
+  margin-bottom: 27px;
+  border-radius: 5px;
+  padding: 20px 35px;
+}
+input {
+  font-size: 20px;
+  width: 100%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide base elements */
+[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+/* Position the <label> */
+[type="checkbox"] + label {
+  position: relative;
+  display: inline-block;
+  height: 12px;
+  line-height: 12px;
+  padding-left: 35px;
+  cursor: pointer;
+  color: $wax-flower;
+}
+
+/* Checkbox - Unchecked */
+[type="checkbox"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  background-color: $wax-flower;
+  border-radius: 3px;
+}
+
+/* CHECKBOX - Unchecked */
+[type="checkbox"]:not(:checked) + label:before {
+  /* Add styles if needed */
+}
+
+/* CHECKBOX - Checked ( CSS Tick ) */
+[type="checkbox"]:checked + label:after {
+  position: absolute;
+  content: "";
+  left: 5px;
+  top: -1px;
+  background-color: #001e49;
+  border-radius: 3px;
+  width: 15px;
+  height: 15px;
+}
+
+/* SHARED STYLES - Radio & Checkbox - Disabled */
+[type="radio"]:disabled + label:before,
+[type="checkbox"]:disabled + label:before {
+  border-color: #bbb;
+  background-color: #ddd;
+}
+
+[type="radio"]:disabled + label,
+[type="checkbox"]:disabled + label {
+  color: #999;
+}
