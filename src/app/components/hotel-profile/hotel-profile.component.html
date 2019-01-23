@@ -1,0 +1,24 @@
+<div class="container-fluid m-2">
+
+
+  <div class="container-fluid">
+    <h3 *ngIf="hotel">{{hotel.name}}
+      <button class="btn btn-dark text-right" (click)="editHotel(hotel.id)"><i class="fa fa-edit" style="color: aliceblue"></i></button>
+    </h3>
+    <div>
+      <p *ngIf="hotel">Opis: {{hotel.desc}}</p>
+      <p *ngIf="hotel">Ocena: {{hotel.avgRating}}</p>
+    </div>
+
+    <div>
+      <label *ngIf="hotel">Adresa: {{hotel.address}}, {{hotel.city}}, {{hotel.country}}</label>
+      <div>
+        <button class="btn btn-dark m-1" (click)="displayRooms()">Sobe</button>
+        <button class="btn btn-dark m-1" (click)="displayServices()">Cenovnik usluga</button>
+        <button class="btn btn-dark m-1" (click)="makeAReservation(hotel.id)">Rezervacija</button>
+      </div>
+    </div>
+  </div>
+
+  <app-map *ngIf="pomAdresa && pomDrz && pomGrad" [address]="pomAdresa" [city]="pomGrad" [state]="pomDrz"></app-map>
+</div>

@@ -1,20 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  
-  constructor(
-    private translateService: TranslateService
-  ) {}
+export class AppComponent {
+  title = 'Ticket reservations ';
+  router: string;
 
-  ngOnInit() {
-    this.translateService.setDefaultLang('en');
-    this.translateService.use('en');
-  }
+  constructor(private _router: Router) {
+
+          this.router = _router.url ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

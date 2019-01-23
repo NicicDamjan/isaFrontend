@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                <div  class="row"><!--*ngIf="user"-->
+                    <div class="col-md-4">
+                        <img width=140px hight=100px src="../../../assets/images/user.ico" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-md-8">
+                        <h4> {{activeUser?.name}} {{activeUser?.surname}}</h4>
+                        <small><cite>{{activeUser?.city}}</cite></small>
+                        <p>
+                            {{activeUser?.email}}
+                            <br />
+                            {{activeUser?.phonenumber}}
+                        </p>
+                            <button type="button" [routerLink]="['/userAccount/editUser']" [routerLinkActive]="['is-active']" class="btn btn-primary">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">History</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr> <!-- *ngFor="let historyPlace of historyPlaces" -->
+                    <td>Mark</td>
+                  </tr>
+                  <tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="col-md-3">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Reservation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr> <!-- *ngFor="let reservation of reservations" -->
+                    <td>2 karte u Areni <button type="button" class="btn btn-danger">Cancel</button></td>
+                  </tr>
+                  <tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-3" style="margin-top:80px;">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Friends</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let re of friendss"> <!-- *ngFor="let reservation of reservations" -->
+                <td><i> {{re.name}}   {{re.surname}} </i></td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-5" style="margin-top:80px;">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Add Friends</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let re of friendships"> <!-- *ngFor="let reservation of reservations" -->
+                <td><i>{{re?.firstfriend.name}} {{re?.firstfriend.surname}} </i><button type="button" class="btn btn-success"(click)="acceptFriend(re.id)">Accept</button>
+                    <button type="button" class="btn btn-warning" (click)="declineFriend(re.id)">Decline</button>
+                    <hr></td>
+              </tr>
+              <tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+</div>
