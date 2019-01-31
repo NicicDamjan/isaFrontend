@@ -8,28 +8,28 @@ import { Router } from '@angular/router';
     selector:'app-navbar',
     templateUrl:'./navbar.component.html',
     styleUrls:['./navbar.component.css']
-}) 
+})
 export class NavbarComponent {
 
-    private activeUser:User;
+    public activeUser:User;
 
     constructor(private _userService:UserService,private _router: Router) {  }
-    
+
     urlImg = '../../../assets/images/logo.png'
 
     ngOnInit() {
-        
+
         this._userService.getActiveUser().subscribe((data)=>{this.activeUser=data;
-        
-        
-        
-      
-        
+
+
+
+
+
         });
     }
 
     deleteActUser(){
-       
+
         this._userService.deleteActiveUser();
         window.location.reload(true);
         this._router.navigateByUrl("/");
