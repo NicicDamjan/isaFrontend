@@ -1,3 +1,18 @@
-<p>
-  airlines works!
-</p>
+<div class="container">
+  <button type="button" [routerLink]="['/system-admin/airlines']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">Add Airline</button>
+  <div *ngFor="let airline of airlines" class="row airlineCard" >
+              <div class="col-md-3 cardInline">
+                      <img  width="220px" hight="170:" src="../../../assets/images/flights.png" alt="airline {{airline.name}}">
+              </div>
+              <div class="col-md-6 cardInline">
+                  <h4 class="list-group-item-heading"> {{airline.name}} </h4>
+                  <p class="list-group-item-text">"<i>{{airline.description}}"</i> </p>
+              </div>
+              <div class="col-md-3 text-center cardInline">
+                  <button type="button" [routerLink]="['/airlines/',airline.id]" class="btn btn-primary btn-lg btn-block cardBtn">Details</button>
+                  <p><i class="fas fa-star"></i> Average {{airline.average_grade}} <small> / </small> 5 </p>
+                  <p><i class="fas fa-location-arrow"></i> {{airline.address}}</p>
+              </div>
+  </div>
+
+</div>

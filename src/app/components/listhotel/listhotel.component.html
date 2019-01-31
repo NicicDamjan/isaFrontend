@@ -36,7 +36,7 @@
 
 <div class="container">
     <button type="button" [routerLink]="['/addHotel']" [routerLinkActive]="['is-active']" class="btn btn-primary btn-lg btn-block cardBtn">Add Hotel</button>
-    <div *ngFor="let hotel of hotels | sorting:orderBy:asc | serach:searchText " class="row theatreCard" >
+    <div *ngFor="let hotel of hotels | sorting:orderBy:asc | serach:searchText " class="row hotelCard" >
                 <div class="col-md-3 cardInline">
                         <img  width="220px" hight="170:" src="../../../assets/images/hotelIcon.png" alt="theatre {{hotel.name}}">
                 </div>

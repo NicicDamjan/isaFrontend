@@ -1,0 +1,17 @@
+.stars {
+    margin:20px auto 1px;    
+  }
+  
+  .airlineCard{
+     border:solid 1px grey;
+     margin-top:8px;
+     margin-bottom:8px;
+  }
+  
+  .cardInline{
+    display:inline-block;
+  }
+  
+  .cardBtn{
+    margin-top:5px;
+  }
