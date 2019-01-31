@@ -66,6 +66,8 @@ import { SerachPipe } from './components/pipes/serach.pipe';
 import { HotelProfileComponent } from './components/hotel-profile/hotel-profile.component';
 import { MapComponent } from './components/hotel-profile/map/map.component';
 import { AddHotelComponent } from './components/add-hotel/add-hotel.component';
+import { AirlinesComponent } from './components/airlines/airlines.component';
+import { AirlineService } from './shared-service/airline.service';
 
 
 
@@ -80,6 +82,7 @@ const appRoutes: Routes = [
 {path: 'confirmEmail/:token', component: ConfirmEmail},
 {path: 'hotels/:id', component: HotelProfileComponent},
 {path: 'addHotel', component: AddHotelComponent},
+{path: 'airlines', component: AirlinesComponent},
 
 
 
@@ -102,7 +105,8 @@ enableProdMode();
     SerachPipe,
     HotelProfileComponent,
     MapComponent,
-    AddHotelComponent
+    AddHotelComponent,
+    AirlinesComponent
 
 
   ],
@@ -151,7 +155,7 @@ enableProdMode();
     FormsModule
   ],
   providers: [ LocationService, HotelService, FriendsService,
-     UserService, HttpModule, DatePipe],
+     UserService, HttpModule, DatePipe, AirlineService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
