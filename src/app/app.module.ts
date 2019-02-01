@@ -69,6 +69,7 @@ import { AddHotelComponent } from './components/add-hotel/add-hotel.component';
 import { AirlinesComponent } from './components/airlines/airlines.component';
 import { AirlineService } from './shared-service/airline.service';
 import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component';
+import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
 
 
 
@@ -85,6 +86,7 @@ const appRoutes: Routes = [
 {path: 'addHotel', component: AddHotelComponent},
 {path: 'airlines', component: AirlinesComponent},
 {path: 'hotels/:id/edit', component: EditHotelComponent},
+{path: 'hotels/:id/services', component: HotelServicesComponent},
 
 
 
@@ -109,7 +111,8 @@ enableProdMode();
     MapComponent,
     AddHotelComponent,
     AirlinesComponent,
-    EditHotelComponent
+    EditHotelComponent,
+    HotelServicesComponent
 
 
   ],
