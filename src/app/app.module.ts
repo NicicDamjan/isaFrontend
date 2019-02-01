@@ -70,6 +70,7 @@ import { AirlinesComponent } from './components/airlines/airlines.component';
 import { AirlineService } from './shared-service/airline.service';
 import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component';
 import { AirlineProfileComponent } from './components/airline-profile/airline-profile.component';
+import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
 
 
 
@@ -87,6 +88,8 @@ const appRoutes: Routes = [
 {path: 'airlines', component: AirlinesComponent},
 {path: 'hotels/:id/edit', component: EditHotelComponent},
 {path: 'airline-profile', component: AirlineProfileComponent},
+{path: 'hotels/:id/services', component: HotelServicesComponent},
+
 
 
 
@@ -111,7 +114,9 @@ enableProdMode();
     AddHotelComponent,
     AirlinesComponent,
     EditHotelComponent,
-    AirlineProfileComponent
+    AirlineProfileComponent,
+    HotelServicesComponent,
+
 
 
   ],
