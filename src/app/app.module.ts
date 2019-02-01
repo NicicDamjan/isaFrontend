@@ -71,6 +71,7 @@ import { AirlineService } from './shared-service/airline.service';
 import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component';
 import { AirlineProfileComponent } from './components/airline-profile/airline-profile.component';
 import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
+import { AddEditServiceComponent } from './components/add-edit-service/add-edit-service.component';
 
 
 
@@ -116,6 +117,8 @@ enableProdMode();
     EditHotelComponent,
     AirlineProfileComponent,
     HotelServicesComponent,
+    AddEditHotelServiceComponent,
+    AddEditServiceComponent,
 
 
 
