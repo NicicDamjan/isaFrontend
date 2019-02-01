@@ -4,6 +4,7 @@ import {Hotel} from '../../hotel';
 import { HotelService } from './../../shared-service/hotel.service';
 import {UserService} from '../../shared-service/user.service';
 import {User} from '../../user';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-hotel',
@@ -15,7 +16,8 @@ export class AddHotelComponent implements OnInit {
   public form: FormGroup;
   public users: any;
 
-  constructor(private hotelService: HotelService, private _userService: UserService) { }
+  constructor(private hotelService: HotelService, private _userService: UserService,
+    protected  router: Router) { }
 
   ngOnInit() {
 
@@ -39,10 +41,14 @@ export class AddHotelComponent implements OnInit {
   })
   }
 
-  addTheatreForm(){
+  addHotelForm(){
     let hotelfields = this.form.value;
 
     this.hotelService.addHotel(hotelfields);
+
+    alert('Hotel je dodat');
+
+    this.router.navigateByUrl('hotels');
   }
 
 

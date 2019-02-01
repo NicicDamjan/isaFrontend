@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="container-fluid m-2">
-    <label>Sortiraj po nazivu:</label>
-    <button class="btn btn-dark m-1" (click)="sortHotelsAsc('name')"><i class="fas fa-angle-down"></i></button>
-    <button class="btn btn-dark m-1" (click)="sortHotelsDesc('name')"><i class="fas fa-angle-up"></i></button>
+    <label><p class="font-weight-bold"><i>Sortiraj po nazivu:</i></p></label>
+    <button class="btn btn-success m-1" (click)="sortHotelsAsc('name')"><i class="fas fa-angle-down"></i></button>
+    <button class="btn btn-danger m-1" (click)="sortHotelsDesc('name')"><i class="fas fa-angle-up"></i></button>
 
   </div>
 
@@ -24,8 +24,8 @@
       </div>
      -->
       <div >
-        <button class="btn btn-dark" (click)="serachHotels()"><i class="fa fa-search"></i></button>
-        <button class="btn btn-dark" (click)="refresh()" style="margin-left: 0.5em"><i class="fas fa-backspace"></i></button>
+        <button class="btn btn-success" (click)="serachHotels()"><i class="fa fa-search"></i></button>
+        <button class="btn btn-danger" (click)="refresh()" style="margin-left: 0.5em"><i class="fas fa-backspace"></i></button>
       </div>
 
     </div>

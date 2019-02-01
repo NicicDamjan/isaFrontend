@@ -1,0 +1,80 @@
+<div class="container padding-top-10"> <!--da se smanji cela forma dodati ovde col-md-6" -->
+	<form [formGroup]="form">
+		<div class="panel panel-default">
+			<div class="panel-heading" align="center">EDIT HOTEL</div>
+				<div class="panel-body">
+					<div class="row padding-top-10">
+						<div class="col-md-2">
+							<label for="Name" class="control-label">Name:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+							<input name="name" class="form-control margin" id="input-capacity"
+                 placeholder="Unesite naziv..." [formControl]="name">
+
+               <small class="form-text error" *ngIf="name.errors?.required && name.touched" style="color: red">
+                 *Obavezno polje!
+               </small>
+            </div>
+          </div>
+            <div class="row padding-top-10 ">
+            <div class="col-md-2">
+							<label for="Location" class="control-label">Address:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+              <input name="address" class="form-control margin" id="input-address"
+              placeholder="Unesite adresu..." [formControl]="address">
+
+             <small class="form-text error" *ngIf="address.errors?.required && address.touched" style="color: red">
+                *Obavezno polje!
+             </small>
+						</div>
+          </div>
+
+          <div class="row padding-top-10 ">
+            <div class="col-md-2">
+							<label for="Location" class="control-label">City:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+              <input name="city" class="form-control margin" id="input-city"
+                 placeholder="Unesite adresu..." [formControl]="city">
+
+               <small class="form-text error" *ngIf="city.errors?.required && city.touched" style="color: red">
+                  *Obavezno polje!
+               </small>
+						</div>
+          </div>
+          </div>
+          <div class="row padding-top-10 ">
+            <div class="col-md-2">
+							<label for="Location" class="control-label">Country:</label>
+						</div>
+						<div class="col-md-5 form-group input-group">
+              <input name="country" class="form-control margin" id="input-country"
+                 placeholder="Unesite adresu..." [formControl]="country">
+
+             <small class="form-text error" *ngIf="country.errors?.required && country.touched" style="color: red">
+                *Obavezno polje!
+             </small>
+						</div>
+          </div>
+					<div class="row padding-top-10 ">
+						<div class="col-md-2">
+							<label for="Promotivni opis" class="control-label">Description:</label>
+						</div>
+						<div class="col-md-10 form-group input-group">
+              <textarea class="form-control margin" laceholder="Unesite opis..." [formControl]="description" id="input-description">
+              </textarea>
+						</div>
+					</div>
+
+
+
+
+			<div class="panel-footer padding-top-12 padding-top-10" align="center">
+        <button type="submit" class="btn btn-success" (click)="execute()" [disabled]="!form.valid">Edit Hotel</button>
+        <button type="submit" class="btn btn-danger" (click)="exit()">Back</button>
+			</div>
+		</div>
+	</form>
+ </div>
+
