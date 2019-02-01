@@ -21,4 +21,8 @@ export class AirlineService {
   getAirlines(): Observable<Airline[]> {
     return this.http.get<Airline[]>('http://localhost:8090/api/airlines/getAllAirlines', httpOptions);
   }
+
+  getAirline(airlineId: number): Observable<Airline> {
+    return this.http.get<Airline>('http://localhost:8080/api/airlines/getAirline/' + airlineId, httpOptions);
+  }
 }
