@@ -72,7 +72,8 @@ import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component
 import { AirlineProfileComponent } from './components/airline-profile/airline-profile.component';
 import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
 import { RegisterAirlineComponent } from './components/register-airline/register-airline.component';
-
+import { FlightsComponent } from './components/flights/flights.component';
+import { FlightService } from './shared-service/flight.service';
 
 
 const appRoutes: Routes = [
@@ -91,6 +92,7 @@ const appRoutes: Routes = [
 {path: 'airline-profile', component: AirlineProfileComponent},
 {path: 'hotels/:id/services', component: HotelServicesComponent},
 {path: 'register-airline', component: RegisterAirlineComponent},
+{path: 'flights', component: FlightsComponent},
 
 
 
@@ -118,6 +120,7 @@ enableProdMode();
     AirlineProfileComponent,
     HotelServicesComponent,
     RegisterAirlineComponent,
+    FlightsComponent,
 
 
 
@@ -167,7 +170,7 @@ enableProdMode();
     FormsModule
   ],
   providers: [ LocationService, HotelService, FriendsService,
-     UserService, HttpModule, DatePipe, AirlineService],
+     UserService, HttpModule, DatePipe, AirlineService, FlightService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
