@@ -1,0 +1,12 @@
+.textRoom{
+  color: rgb(165, 26, 26);
+    text-shadow:
+    -1px -1px 0 #999,
+    1px -1px 0 #999,
+    -1px 1px 0 #999,
+    1px 1px 0 #999;
+}
+
+.tableRoom{
+  opacity: 0.75;
+}
