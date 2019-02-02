@@ -1,3 +1,4 @@
+import { RoomService } from './shared-service/room.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -71,9 +72,13 @@ import { AirlineService } from './shared-service/airline.service';
 import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component';
 import { AirlineProfileComponent } from './components/airline-profile/airline-profile.component';
 import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
+import { AddEditHotelServiceComponent } from './components/add-edit-hotel-service/add-edit-hotel-service.component';
 import { RegisterAirlineComponent } from './components/register-airline/register-airline.component';
 import { FlightsComponent } from './components/flights/flights.component';
 import { FlightService } from './shared-service/flight.service';
+import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
+import { RoomComponent } from './components/room/room.component';
+
 
 
 const appRoutes: Routes = [
@@ -91,8 +96,14 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/edit', component: EditHotelComponent},
 {path: 'airline-profile', component: AirlineProfileComponent},
 {path: 'hotels/:id/services', component: HotelServicesComponent},
+{path: 'hotels/:id/services/:mode/:serviceId', component: AddEditHotelServiceComponent},
+{path: 'hotels/:id/services/:mode', component: AddEditHotelServiceComponent},
 {path: 'register-airline', component: RegisterAirlineComponent},
 {path: 'flights', component: FlightsComponent},
+{path: 'hotels/:id/rooms/:mode/:roomId', component: AddEditRoomComponent},
+{path: 'hotels/:id/rooms/:mode', component: AddEditRoomComponent},
+{path: 'hotels/:id/rooms', component: RoomComponent},
+
 
 
 
@@ -119,8 +130,11 @@ enableProdMode();
     EditHotelComponent,
     AirlineProfileComponent,
     HotelServicesComponent,
+    AddEditHotelServiceComponent,
     RegisterAirlineComponent,
     FlightsComponent,
+    AddEditRoomComponent,
+    RoomComponent,
 
 
 
@@ -170,7 +184,8 @@ enableProdMode();
     FormsModule
   ],
   providers: [ LocationService, HotelService, FriendsService,
-     UserService, HttpModule, DatePipe, AirlineService, FlightService],
+     UserService, HttpModule, DatePipe, AirlineService, FlightService,
+    RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,0 +1,63 @@
+<div class=" offset-4 col-md-4" style="margin-top:60px;margin-top: 13%;background-image:url('../../../assets/images/room.jpg');">
+
+
+  <form [formGroup]="form">
+    <div class="form-group">
+      <label class="textRoom" style="font-weight: bold">Kapacitet:</label>
+      <input name="capacity" class="form-control margin" id="input-capacity"
+             placeholder="Unesite kapacitet sobe..." [formControl]="capacity">
+
+      <small class="form-text error" *ngIf="capacity.errors?.required && capacity.touched" style="color: red">
+        Ovo polje je obavezno za unos!
+      </small>
+
+
+      <label class="textRoom" style="font-weight: bold">Cena za noćenje:</label>
+      <input name="costPerNight" class="form-control margin" id="input-costPerNight"
+             placeholder="Unesite cenu za noćenje..." [formControl]="costPerNight">
+
+      <small class="form-text error" *ngIf="costPerNight.errors?.required && costPerNight.touched" style="color: red">
+       Ovo polje je obavezno za unos!
+      </small>
+
+      <label class="textRoom" style="margin-bottom: 15px; font-weight: bold;">Unesite datum pocetka vazenja cene:</label>
+      <input [formControl]="costValidFrom" id="costValidFrom" name="costValidFrom" class="form-control" style="margin-left:100px;width: 250px; margin-bottom: 15px;" type="date">
+
+      <small class="form-text error" *ngIf="costValidFrom.errors?.required && costValidFrom.touched" style="color: red">
+        Ovo polje je obavezno za unos!
+      </small>
+
+      <label class="textRoom" style="margin-bottom: 15px; font-weight: bold;">Unesite datum zavrsetka vazenja cene:</label>
+      <input [formControl]="costValidUntil" id="costValidUntil" name="costValidUntil" class="form-control" style="margin-left:100px;width: 250px;margin-bottom: 15px;" type="date">
+
+      <small class="form-text error" *ngIf="costValidUntil.errors?.required && costValidUntil.touched" style="color: red">
+        Ovo polje je obavezno za unos!
+      </small>
+
+      <label class="textRoom" style="font-weight: bold">Sprat:</label>
+      <input name="floor" class="form-control margin" id="input-floor"
+             placeholder="Unesite sprat..." [formControl]="floor">
+      <small class="form-text error" *ngIf="floor.errors?.required && floor.touched" style="color: red">
+        Ovo polje je obavezno za unos!
+      </small>
+
+      <label class="textRoom" style="margin-top: 15px;font-weight: bold">Balkon:</label>
+      <input name="hasBalcony" class="form-control margin" id="input-hasBalcony" type="checkbox"
+             [formControl]="hasBalcony">
+
+      <label class="textRoom" style="margin-top: 15px;font-weight: bold">Tip sobe:</label>
+      <select name="roomType" class="form-control margin " [formControl]="roomType" style="margin-bottom: 30px;width: 100%;">
+
+        <option *ngFor="let type of rooms " value="{{type}}">{{type}}</option>
+
+      </select>
+
+
+      <button class="btn btn-dark" style="width: 100%;margin-top: 20px;margin-bottom: 15px"
+              (click)="execute()" [disabled]="!form.valid"> Potvrdi
+      </button>
+
+      <button class="btn btn-primary" style="width: 100%;margin-bottom: 30px" (click)="exit()">Nazad</button>
+    </div>
+  </form>
+</div>
