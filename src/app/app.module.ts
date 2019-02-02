@@ -1,3 +1,4 @@
+import { RoomService } from './shared-service/room.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -73,6 +74,7 @@ import { AirlineProfileComponent } from './components/airline-profile/airline-pr
 import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
 import { AddEditHotelServiceComponent } from './components/add-edit-hotel-service/add-edit-hotel-service.component';
 import { RegisterAirlineComponent } from './components/register-airline/register-airline.component';
+import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 
 
 
@@ -94,6 +96,8 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/services/:mode/:serviceId', component: AddEditHotelServiceComponent},
 {path: 'hotels/:id/services/:mode', component: AddEditHotelServiceComponent},
 {path: 'register-airline', component: RegisterAirlineComponent},
+{path: 'hotels/:id/rooms/:mode/:roomId', component: AddEditRoomComponent},
+{path: 'hotels/:id/rooms/:mode', component: AddEditRoomComponent},
 
 
 
@@ -122,6 +126,7 @@ enableProdMode();
     HotelServicesComponent,
     AddEditHotelServiceComponent,
     RegisterAirlineComponent,
+    AddEditRoomComponent,
 
 
 
@@ -171,7 +176,8 @@ enableProdMode();
     FormsModule
   ],
   providers: [ LocationService, HotelService, FriendsService,
-     UserService, HttpModule, DatePipe, AirlineService],
+     UserService, HttpModule, DatePipe, AirlineService,
+    RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
