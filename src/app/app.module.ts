@@ -79,6 +79,8 @@ import { FlightService } from './shared-service/flight.service';
 import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 import { RoomComponent } from './components/room/room.component';
 import { AddFlightComponent } from './components/add-flight/add-flight.component';
+import { AddDestinationComponent } from './components/add-destination/add-destination.component';
+import { DestinationService } from './shared-service/destination.service';
 
 
 
@@ -106,6 +108,7 @@ const appRoutes: Routes = [
 {path: 'flights', component: FlightsComponent},
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
 {path: 'addFlight', component: AddFlightComponent},
+{path: 'destinations', component: AddDestinationComponent },
 
 
 
@@ -139,6 +142,7 @@ enableProdMode();
     AddEditRoomComponent,
     RoomComponent,
     AddFlightComponent,
+    AddDestinationComponent,
 
 
 
@@ -189,7 +193,7 @@ enableProdMode();
   ],
   providers: [ LocationService, HotelService, FriendsService,
      UserService, HttpModule, DatePipe, AirlineService, FlightService,
-    RoomService],
+    RoomService, DestinationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
