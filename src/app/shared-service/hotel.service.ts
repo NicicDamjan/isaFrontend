@@ -1,3 +1,4 @@
+import { HotelServiceModel } from './../hotel-service';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -39,7 +40,7 @@ export class HotelService {
   getHotelServices(id: number):  Observable<any> {
     return this.http.get(`${this.ALL_HOTELS_URL}/` + id +  '/services');
   }
-  editHotelService(hs: HotelService, id: number, serviceId: number): Observable<any> {
+  editHotelService(hs: HotelServiceModel, id: number, serviceId: number): Observable<any> {
     const body = JSON.stringify(hs);
     return this.http.put(`${this.ALL_HOTELS_URL}/` + id +  '/services/' + serviceId, body, httpOptions);
   }
@@ -48,7 +49,7 @@ export class HotelService {
     return this.http.delete(`${this.ALL_HOTELS_URL}/` + id +  '/services/' + sId);
   }
 
-  addNewHotelService(hs: HotelService, id: number): Observable<any> {
+  addNewHotelService(hs: HotelServiceModel, id: number): Observable<any> {
     const body = JSON.stringify(hs);
     return this.http.post(`${this.ALL_HOTELS_URL}/` + id +  '/services', body, httpOptions);
   }

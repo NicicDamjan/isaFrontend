@@ -1,0 +1,37 @@
+<div class="wrapper fadeInDown">
+  <div class="form-group" id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../../assets/images/service.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="form">
+      <div class="form-group">
+
+        <input name="name"  class="fadeIn second" class="form-control margin" id="input-capacity"
+        placeholder="Unesite naziv..." [formControl]="name">
+
+        <small class="form-text error" *ngIf="name.errors?.required && name.touched" style="color: red">
+           Ovo polje je obavezno za unos!
+        </small>
+
+        <input name="cost" class="fadeIn third" class="form-control margin" id="input-cost"
+              placeholder="Unesite cenu..." [formControl]="cost">
+
+         <small class="form-text error" *ngIf="cost.errors?.required && cost.touched" style="color: red">
+             Ovo polje je obavezno za unos!
+        </small>
+
+        <button class="fadeIn fourth" class="btn btn-secondary" style="width: 100%;margin-top: 20px;margin-bottom: 15px"
+                  (click)="execute()" [disabled]="!form.valid"> Potvrdi
+        </button>
+
+        <button class="fadeIn fourth" class="btn btn-dark" style="width: 100%;margin-bottom: 30px" (click)="exit()">Nazad</button>
+      </div>
+      </form>
+
+  </div>
+</div>
