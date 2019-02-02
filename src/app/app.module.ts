@@ -72,6 +72,7 @@ import { EditHotelComponent } from './components/edit-hotel/edit-hotel.component
 import { AirlineProfileComponent } from './components/airline-profile/airline-profile.component';
 import { HotelServicesComponent } from './components/hotel-services/hotel-services.component';
 import { AddEditHotelServiceComponent } from './components/add-edit-hotel-service/add-edit-hotel-service.component';
+import { RegisterAirlineComponent } from './components/register-airline/register-airline.component';
 
 
 
@@ -92,7 +93,7 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/services', component: HotelServicesComponent},
 {path: 'hotels/:id/services/:mode/:serviceId', component: AddEditHotelServiceComponent},
 {path: 'hotels/:id/services/:mode', component: AddEditHotelServiceComponent},
-
+{path: 'register-airline', component: RegisterAirlineComponent},
 
 
 
@@ -120,6 +121,7 @@ enableProdMode();
     AirlineProfileComponent,
     HotelServicesComponent,
     AddEditHotelServiceComponent,
+    RegisterAirlineComponent,
 
 
 

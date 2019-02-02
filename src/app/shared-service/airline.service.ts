@@ -23,6 +23,12 @@ export class AirlineService {
   }
 
   getAirline(airlineId: number): Observable<Airline> {
-    return this.http.get<Airline>('http://localhost:8080/api/airlines/getAirline/' + airlineId, httpOptions);
+    return this.http.get<Airline>('http://localhost:8090/api/airlines/getAirline/' + airlineId, httpOptions);
   }
+
+  addNewAirline(airline: Airline): Observable<any> {
+    const body = JSON.stringify(airline);
+    return this.http.post('http://localhost:8090/api/airlines/add', body, httpOptions);
+  }
+
 }

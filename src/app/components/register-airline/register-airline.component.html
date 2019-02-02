@@ -1,0 +1,43 @@
+<div class="container" style="font-weight: bolder">
+  <div class="jumbotron" style="width: 50%; text-align: center; margin-top: 25px; border-color: lightslategray;  height: 100%; border-radius: 25px; border-style: solid;">
+    <div>
+      <label class="" style="margin-bottom: 25px; font-size: 25px; font-weight: bold">
+        Nova aviokompanija:
+      </label>
+
+      <form [formGroup]="form">
+        <div class="form-group">
+          <label style="font-weight: bold">Naziv:</label>
+          <input name="name" class="form-control margin" id="input-capacity"
+                 placeholder="Unesite naziv..." [formControl]="name">
+
+          <small class="form-text error" *ngIf="name.errors?.required && name.touched" style="color: red">
+            Ovo polje je obavezno za unos!
+          </small>
+
+
+          <label style="font-weight: bold">Adresa:</label>
+          <input name="address" class="form-control margin" id="input-address"
+                 placeholder="Unesite adresu..." [formControl]="address">
+
+          <small class="form-text error" *ngIf="address.errors?.required && address.touched" style="color: red">
+            Ovo polje je obavezno za unos!
+          </small>
+
+          <label style="font-weight: bold">Opis:</label>
+          <textarea class="form-control margin" laceholder="Unesite sprat..." [formControl]="description" id="input-description">
+      </textarea>
+
+          <button class="btn btn-dark" style="width: 100%;margin-top: 20px;margin-bottom: 15px"
+                  (click)="execute()" [disabled]="!form.valid"> Potvrdi
+          </button>
+
+          <button class="btn btn-primary" style="width: 100%;margin-bottom: 30px" (click)="exit()">Nazad</button>
+        </div>
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
