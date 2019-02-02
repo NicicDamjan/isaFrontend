@@ -78,6 +78,7 @@ import { FlightsComponent } from './components/flights/flights.component';
 import { FlightService } from './shared-service/flight.service';
 import { AddEditRoomComponent } from './components/add-edit-room/add-edit-room.component';
 import { RoomComponent } from './components/room/room.component';
+import { AddFlightComponent } from './components/add-flight/add-flight.component';
 
 
 
@@ -92,17 +93,19 @@ const appRoutes: Routes = [
 {path: 'confirmEmail/:token', component: ConfirmEmail},
 {path: 'hotels/:id', component: HotelProfileComponent},
 {path: 'addHotel', component: AddHotelComponent},
-{path: 'airlines', component: AirlinesComponent},
 {path: 'hotels/:id/edit', component: EditHotelComponent},
-{path: 'airline-profile', component: AirlineProfileComponent},
 {path: 'hotels/:id/services', component: HotelServicesComponent},
 {path: 'hotels/:id/services/:mode/:serviceId', component: AddEditHotelServiceComponent},
 {path: 'hotels/:id/services/:mode', component: AddEditHotelServiceComponent},
-{path: 'register-airline', component: RegisterAirlineComponent},
-{path: 'flights', component: FlightsComponent},
 {path: 'hotels/:id/rooms/:mode/:roomId', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms/:mode', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms', component: RoomComponent},
+
+{path: 'airlines', component: AirlinesComponent},
+{path: 'airlines/:id', component: AirlineProfileComponent},
+{path: 'flights', component: FlightsComponent},
+{path: 'system-admin/airlines', component: RegisterAirlineComponent},
+{path: 'addFlight', component: AddFlightComponent},
 
 
 
@@ -135,6 +138,7 @@ enableProdMode();
     FlightsComponent,
     AddEditRoomComponent,
     RoomComponent,
+    AddFlightComponent,
 
 
 

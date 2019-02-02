@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Airline} from '../airline';
+import {Destination} from '../Destination';
 
 
 const httpOptions = {
@@ -29,6 +30,10 @@ export class AirlineService {
   addNewAirline(airline: Airline): Observable<any> {
     const body = JSON.stringify(airline);
     return this.http.post('http://localhost:8090/api/airlines/add', body, httpOptions);
+  }
+
+  getDestinations(airlineId: number): Observable<Destination[]> {
+    return this.http.get<Destination[]>('http://localhost:8090/api/airlines/' + airlineId + '/getAllDestinations');
   }
 
 }
