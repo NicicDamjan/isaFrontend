@@ -81,6 +81,7 @@ import { RoomComponent } from './components/room/room.component';
 import { AddFlightComponent } from './components/add-flight/add-flight.component';
 import { AddDestinationComponent } from './components/add-destination/add-destination.component';
 import { DestinationService } from './shared-service/destination.service';
+import { DestinationsComponent } from './components/destinations/destinations.component';
 
 
 
@@ -108,7 +109,8 @@ const appRoutes: Routes = [
 {path: 'flights', component: FlightsComponent},
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
 {path: 'addFlight', component: AddFlightComponent},
-{path: 'destinations', component: AddDestinationComponent },
+{path: 'addDestinations', component: AddDestinationComponent },
+{path: 'destinations', component: DestinationsComponent },
 
 
 
@@ -143,6 +145,7 @@ enableProdMode();
     RoomComponent,
     AddFlightComponent,
     AddDestinationComponent,
+    DestinationsComponent,
 
 
 
