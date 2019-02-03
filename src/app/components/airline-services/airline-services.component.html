@@ -1,0 +1,40 @@
+
+<button class="btn btn-primary" (click)="addService(id)">Dodaj uslugu</button>
+<div class="jumbotron" style="background-color: white; text-align: center; width: 60%; margin-top: 25px; border-color: lightslategray;  height: auto; border-radius: 25px; border-style: solid;">
+  <div style="text-align: center">
+  <label style="font-size: 35px; font-weight: bolder">{{airline.name}} Usluge </label>
+  <table id="cssTable" style=" margin-top: 35px; margin-left: 65px; width: auto; border: darkslategrey;" class="table table-striped">
+    <thead>
+    <tr style="text-align: center">
+
+      <th scope="col"></th>
+      <th scope="col">Naziv usluge</th>
+      <th scope="col">Cena usluge</th>
+      <th scope="col"></th>
+    </tr>
+
+    </thead>
+
+    <tbody style="text-align: center; vertical-align: middle">
+
+    <tr *ngFor="let service of services" style="text-align: center"[attr.id]="service.id">
+
+      <td></td>
+      <td>{{service.name}}</td>
+      <td>{{service.price}}EUR
+
+      <td>
+        <button class="btn bnt-default" style="border-color: gray" (click)="editService(service.id)">Izmeni</button><br>
+        <button class="btn bnt-default" style="border-color: gray" (click)="deleteService(service.id)">Obrisi</button>
+      </td>
+    </tr>
+
+    </tbody>
+
+
+  </table>
+  </div>
+  <button class="btn bnt-default" style="border-color: gray" (click)="back()">Nazad</button>
+</div>
+
+

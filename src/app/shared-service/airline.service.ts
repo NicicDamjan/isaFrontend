@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Airline} from '../airline';
 import {Destination} from '../Destination';
+import {AirlineServiceModel} from '../airlineServiceModel';
 
 
 const httpOptions = {
@@ -34,6 +35,30 @@ export class AirlineService {
 
   getDestinations(airlineId: number): Observable<Destination[]> {
     return this.http.get<Destination[]>('http://localhost:8090/api/airlines/' + airlineId + '/getAllDestinations');
+  }
+
+  getServices(airlineId: number) {
+    return this.http.get<AirlineServiceModel[]>('http://localhost:8090/api/airlines/' + airlineId + '/getAllServices');
+  }
+
+  getOneService(serviceId: number): Observable<AirlineServiceModel> {
+    return this.http.get<AirlineServiceModel>('http://localhost:8090/api/airlines/' + serviceId + '/getOneService');
+  }
+
+  addService(id: number, service: AirlineServiceModel): Observable<any> {
+    const sendService = JSON.stringify(service);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post('http://localhost:8090/api/airlines/' + id + '/addService', sendService, {headers: headers});
+  }
+
+  editService(serviceId: number, service: AirlineServiceModel) {
+    const sendService = JSON.stringify(service);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post('http://localhost:8090/api/airlines/' + serviceId + '/updateService', sendService, {headers: headers});
+  }
+
+  deleteService(id: number): Observable<any> {
+    return this.http.delete('http://localhost:8090/api/airlines/' + id + '/deleteService');
   }
 
 }
