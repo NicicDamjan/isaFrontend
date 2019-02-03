@@ -1,0 +1,30 @@
+<div class="container" style="font-weight: bolder">
+  <div class="jumbotron" style="width: 50%; text-align: center; margin-top: 25px; border-color: lightslategray;  height: 100%; border-radius: 25px; border-style: solid;">
+    <div>
+      <label class="" style="margin-bottom: 25px; font-size: 25px; font-weight: bold">
+        Unesite uslugu i cenu:
+      </label>
+
+
+      <form [formGroup]="form">
+        <div class="form-group">
+
+          <label style="margin-bottom: 15px;">Unesite naziv usluge:</label>
+          <input [formControl]="name" name="name" type="text" class="form-control" style="margin-left:120px;width: 250px;margin-bottom: 15px;">
+
+          <small class="form-text error" *ngIf="name.errors?.required && name.touched" style="color: red">
+            Naziv je obavezan!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite cenu:</label>
+          <input [formControl]="price" name="price" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
+
+          <small class="form-text error" *ngIf="price.errors?.required && price.touched" style="color: red">
+            Cena je obavezna!
+          </small>
+
+          <button (click)="unesi()" class="btn btn-primary" [disabled]="!form.valid" style="margin-top: 15px;">Unesi</button>
+
+        </div>
+      </form>
+    </div>
