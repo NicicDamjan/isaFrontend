@@ -84,6 +84,7 @@ import { DestinationService } from './shared-service/destination.service';
 import { DestinationsComponent } from './components/destinations/destinations.component';
 import { AirlineServicesComponent } from './components/airline-services/airline-services.component';
 import { AddAirlineServiceComponent } from './components/add-airline-service/add-airline-service.component';
+import { AddAirlineConfigurationComponent } from './components/add-airline-configuration/add-airline-configuration.component';
 
 
 
@@ -115,6 +116,7 @@ const appRoutes: Routes = [
 {path: 'destinations', component: DestinationsComponent },
 {path: 'services', component: AirlineServicesComponent},
 {path: 'addAirlineService', component: AddAirlineServiceComponent},
+{path: 'addAirlineConfiguration', component: AddAirlineConfigurationComponent},
 
 
 
@@ -152,6 +154,7 @@ enableProdMode();
     DestinationsComponent,
     AirlineServicesComponent,
     AddAirlineServiceComponent,
+    AddAirlineConfigurationComponent,
 
 
 

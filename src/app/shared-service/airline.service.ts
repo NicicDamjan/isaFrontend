@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Airline} from '../airline';
 import {Destination} from '../Destination';
 import {AirlineServiceModel} from '../airlineServiceModel';
+import {AirlineConfiguration} from '../airlineConfiguration';
 
 
 const httpOptions = {
@@ -59,6 +60,22 @@ export class AirlineService {
 
   deleteService(id: number): Observable<any> {
     return this.http.delete('http://localhost:8090/api/airlines/' + id + '/deleteService');
+  }
+
+  getConfiguration(id: number): Observable<AirlineConfiguration> {
+    return this.http.get<AirlineConfiguration>('http://localhost:8090/api/airlines/' + id + '/getConfigurationByAirline', httpOptions);
+  }
+
+  addConfiguration(airlineId: number, conf: AirlineConfiguration): Observable<any> {
+    const sendService = JSON.stringify(conf);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post('http://localhost:8090/api/airlines/' + airlineId + '/addConfiguration', sendService, {headers: headers});
+  }
+
+  editConfiguration(id: number, conf: AirlineConfiguration) : Observable<any> {
+    const sendService = JSON.stringify(conf);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    return this.http.post('http://localhost:8090/api/airlines/' + id + '/editConfiguration', sendService, {headers: headers});
   }
 
 }
