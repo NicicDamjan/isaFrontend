@@ -1,8 +1,7 @@
-
-<button class="btn btn-primary" (click)="addFlight(id)">Dodaj let</button>
-<div class="jumbotron" style="background-color: white; width: 100%; text-align: center ; margin-top: 25px; border-color: lightslategray;  height: 100%; border-radius: 25px; border-style: solid;">
+<div class="jumbotron" style="background-color: white; width: 100%; text-align: center ; margin-top: 25px; border-color: lightslategray;  height: 100%;">
 <label style="font-size: 35px; font-weight: bolder">{{airline.name}} Letovi </label>
-<table id="cssTable" style=" margin-top: 35px; width: auto; border: darkslategrey;" class="table table-striped">
+<button class="btn btn-success" (click)="addFlight(id)">Dodaj let</button>
+<table id="cssTable" style=" margin-top: 35px; width: auto; border: darkslategrey;" class="table table-dark tableRoom">
 <thead>
 <tr style="text-align: center">
 
@@ -26,7 +25,7 @@
 
   <tr *ngFor="let flight of flights" style="text-align: center">
 
-    <td> <img style="width: 50px; height: 50px;" src="../../assets/images/icons8-airplane-take-off-208.png"></td>
+    <td></td>
     <td  style="text-align: center;">
       {{flight.takeOff | date}}<br>
       {{flight.takeOff | date : 'shortTime'}}<br>
@@ -67,11 +66,11 @@
       {{flight.ticketPrice}}EUR
     </td>
     <td>
-      <button class="btn bnt-primary" (click)="details(flight.id)">Detaljnije</button>
+      <button class="btn btn-primary" (click)="details(flight.id)">Detaljnije</button>
     </td>
     <td>
-      <button class="btn bnt-default" style="border-color: gray" (click)="izmeni()">Izmeni</button><br>
-      <button class="btn bnt-default" style="border-color: gray" (click)="obrisi()">Obrisi</button>
+      <button class="btn btn-warning" style="border-color: gray" (click)="izmeni()">Izmeni</button><br>
+      <button class="btn btn-danger" style="border-color: gray" (click)="obrisi()">Obrisi</button>
     </td>
   </tr>
 

@@ -1,7 +1,7 @@
 <div class="container" style="font-weight: bolder">
-  <div class="jumbotron" style="width: 50%; text-align: center; margin-top: 25px; border-color: lightslategray;  height: 100%; border-radius: 25px; border-style: solid;">
+  <div class="jumbotron"  style="background-image:url('../../../assets/images/airlineProfile.jpg')  ;width: 50%; text-align: center; margin-top: 25px;margin-left: 25%; border-color: lightslategray;  height: 100%;">
     <div>
-      <label class="" style="margin-bottom: 25px; font-size: 25px; font-weight: bold">
+      <label class="" style="margin-bottom: 25px; font-size: 25px; font-weight: bold; color:#ffff;">
         Unesite konfiguarciju mesta u avionu:
       </label>
     <br>
@@ -12,29 +12,26 @@
       <form [formGroup]="form">
         <div class="form-group">
 
-          <label style="margin-bottom: 15px;">Unesite broj grupa:</label>
-          <input [formControl]="arange" name="arange" type="text" class="form-control" style="margin-left:120px;width: 250px;margin-bottom: 15px;">
+          <input [formControl]="arange" placeholder="Unesite broj grupa" name="arange" type="text" class="form-control" style="margin-left:120px;width: 250px;margin-bottom: 15px;" >
 
           <small class="form-text error" *ngIf="arange.errors?.required && arange.touched" style="color: red">
             Broj grupa je obavezan!
           </small>
 
-          <label style="margin-bottom: 15px;">Unesite broj kolona u grupi:</label>
-          <input [formControl]="columnsA" name="columnsA" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
+          <input [formControl]="columnsA" placeholder="Unesite broj kolona u grupi" name="columnsA" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
 
           <small class="form-text error" *ngIf="columnsA.errors?.required && columnsA.touched" style="color: red">
             Broj kolona je obavezan!
           </small>
 
-          <label style="margin-bottom: 15px;">Unesite broj redova u grupi:</label>
-          <input [formControl]="rowsA" name="rowsA" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
+          <input [formControl]="rowsA" placeholder="Unesite broj redova u grupi" name="rowsA" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
 
           <small class="form-text error" *ngIf="rowsA.errors?.required && rowsA.touched" style="color: red">
             Broj redova je obavezan!
           </small>
 
 
-          <button (click)="unesi()" class="btn btn-primary" [disabled]="!form.valid" style="margin-top: 15px;">Unesi</button>
+          <button (click)="unesi()" class="btn btn-warning" [disabled]="!form.valid" style="margin-top: 15px;">Unesi</button>
 
         </div>
       </form>

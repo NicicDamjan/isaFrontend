@@ -1,3 +1,142 @@
-<p>
-  it works!
-</p>
+<div class="container" style="font-weight: bolder">
+  <div class="jumbotron" style="background-image:url('../../../assets/images/addFlight.jpg')  ;width: 60%; text-align: center; margin-top: 25px;margin-left: 20%; border-color: lightslategray;  height: auto;">
+    <div>
+      <label class="" style="margin-bottom: 25px; font-size: 25px; font-weight: bold; color:#ffff;">
+        Unesite novi let:
+      </label>
+
+
+      <form [formGroup]="form">
+        <div class="form-group">
+
+        <label style="margin-bottom: 15px;">Unesite polazno mesto:</label>
+          <select [formControl]="polazno" id="polazno1" name="polazno"  class="form-control" style="margin-left:120px;width: 250px; margin-bottom: 15px;">
+
+            <option *ngFor = "let destinationF of destinations" [ngValue]="destinationF.name">{{destinationF.name}}</option>
+
+          </select>
+          <small class="form-text error" *ngIf="polazno.errors?.required && polazno.touched" style="color: red">
+            Polazno mesto je obavezno!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite odredisno mesto:</label>
+          <select [formControl]="odrediste" id="odrediste1" name="odrediste" class="form-control" style=" margin-left:120px;width: 250px;margin-bottom: 15px;">
+
+            <option *ngFor = "let destinationT of destinations" [ngValue]="destinationT.name">{{destinationT.name}}</option>
+
+          </select>
+
+          <small class="form-text error" *ngIf="odrediste.errors?.required && odrediste.touched" style="color: red">
+            Odredisno mesto je obavezno!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite datum i vreme poletanja:</label>
+          <input [formControl]="datumPoletanja" id="poletanjeDatum1" name="datumPoletanja" class="form-control" style="margin-left:120px;width: 250px; margin-bottom: 15px;" type="datetime-local">
+
+          <small class="form-text error" *ngIf="datumPoletanja.errors?.required && datumPoletanja.touched" style="color: red">
+            Datum poletanja je obavezan!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite datum i vreme sletanja:</label>
+          <input [formControl]="datumSletanja" id="sletanjeDatum1" name="datumSletanja" class="form-control" style="margin-left:120px;width: 250px;margin-bottom: 15px;" type="datetime-local">
+
+          <small class="form-text error" *ngIf="datumSletanja.errors?.required && datumSletanja.touched" style="color: red">
+            Datum sletanja je obavezan!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite trajanje leta:</label>
+
+          <div>
+            <input [formControl]="sati" name="sati" class="form-control" style="
+            text-align: center; display: inline-block; margin-left:50px;margin-right10px;width: 40px;" type="text">
+            <label style="display: inline-block;">h</label>
+
+          <input [formControl]="minuti" name="minuti" class="form-control" style="display: inline-block; margin-left:10px;width: 60px;margin-bottom: 15px;" type="text">
+            <label style="display: inline-block;">min</label>
+          </div>
+
+          <small class="form-text error" *ngIf="sati.errors?.required && sati.touched" style="color: red">
+            Trajanje leta je obavezno!
+          </small>
+
+          <small class="form-text error" *ngIf="minuti.errors?.required && minuti.touched" style="color: red">
+            Trajanje leta je obavezno!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite duzinu leta[km]:</label>
+          <input [formControl]="duzinaLeta" name="duzinaLeta" type="text" class="form-control" style="margin-left:120px;width: 250px;margin-bottom: 15px;">
+
+          <small class="form-text error" *ngIf="duzinaLeta.errors?.required && duzinaLeta.touched" style="color: red">
+            Duzina leta je obavezna!
+          </small>
+
+          <label style="margin-bottom: 15px; background-color:#ffff;">Unesite cenu karte[EUR]:</label>
+          <input [formControl]="karta" name="karta" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
+
+
+          <small class="form-text error" *ngIf="karta.errors?.required && karta.touched" style="color: red">
+            Cena je obavezna!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite broj sedista za ovaj let:</label>
+          <input [formControl]="sedista" name="sedista" type="text" style="margin-left:120px;width: 250px; margin-bottom: 15px;" class="form-control">
+
+
+          <small class="form-text error" *ngIf="karta.errors?.required && karta.touched" style="color: red">
+            Cena je obavezna!
+          </small>
+
+          <label style="margin-bottom: 15px;">Unesite broj presedanja:</label>
+          <input [disabled]="bll" [formControl]="brPresedanja" [(ngModel)]="bbr" name="brPresedanja" type="text" style="margin-left:120px;width: 250px;" class="form-control margin" (change)="meth()">
+
+
+          <small class="form-text error" *ngIf="brPresedanja.errors?.required && brPresedanja.touched" style="color: red">
+            Broj presedanja je obavezan!
+          </small>
+
+
+          <form [formGroup]="form2">
+          <ng-container *ngIf="brPresedanja.value!=0 && brPresedanja.value">
+
+            <div *ngFor="let in of arr; let i = index">
+
+
+              <div>
+                <label>Unesite lokaciju za {{in}} presedanje </label>
+                <select [formControlName]="'lokacija' + in" id="polazno2{{in}}" name="polazno"  class="form-control" style="margin-left:120px;width: 250px; margin-bottom: 15px;">
+
+                  <option *ngFor = "let destinationF of destinations" [ngValue]="destinationF.name">{{destinationF.name}}</option>
+
+                </select>
+
+                <small class="form-text error" *ngIf=" ('lokacija' + in).errors?.required && ('lokacija'+in).touched" style="color: red">
+                  okacija je je obavezan!
+                </small>
+
+                <label>Unesite vreme sletanja za {{in}} presedanje </label>
+                <input [formControlName]="'sletanje' + in" id="sletanje{{in}}" name="datumPoletanja3" class="form-control" style="margin-left:120px;width: 250px; margin-bottom: 15px;" type="datetime-local">
+
+                <label>Unesite vreme poletanja za {{in}} presedanje </label>
+                <input [formControlName]="'poletanje' + in"  id="poletanjeDatum2" name="datumPoletanja3" class="form-control" style="margin-left:120px;width: 250px; margin-bottom: 15px;" type="datetime-local">
+
+
+              </div>
+              <br>
+              <br>
+            </div>
+
+          </ng-container>
+          </form>
+
+
+          <button (click)="unesi()" class="btn btn-primary" [disabled]="!form.valid" style="margin-top: 15px;">Unesi</button>
+
+          </div>
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+
