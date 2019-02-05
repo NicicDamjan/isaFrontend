@@ -22,9 +22,9 @@
       <td>{{r.costValidFrom | date: 'dd/MM/yyyy'}} </td>
       <td>{{r.costValidUntil | date: 'dd/MM/yyyy'}}</td>
       <td *ngIf="!r.reserved">
-        <input type="checkbox">
-        <button (click)="editRoom(r.id)"><i class="fa fa-edit"></i></button>
-        <button (click)="deleteRoom(r.id)"><i class="fa fa-trash"></i></button>
+        <input *ngIf="activeUser" type="checkbox">
+        <button *ngIf="activeUser&&activeUser?.email===hotelAdmin" (click)="editRoom(r.id)"><i class="fa fa-edit"></i></button>
+        <button *ngIf="activeUser&&activeUser?.email===hotelAdmin" (click)="deleteRoom(r.id)"><i class="fa fa-trash"></i></button>
       </td>
 
     </tr>
@@ -34,8 +34,8 @@
     <tr>
       <td colspan="4"></td>
       <td colspan="2">
-        <button class="btn btn-dark">Rezervisi</button>
-        <button *ngIf="hotelId" class="btn btn-dark" (click)="addNewRoom()">Dodaj sobu</button>
+        <button *ngIf="activeUser" class="btn btn-dark">Rezervisi</button>
+        <button *ngIf="hotelId&&activeUser&&activeUser?.email===hotelAdmin" class="btn btn-dark" (click)="addNewRoom()">Dodaj sobu</button>
       </td>
     </tr>
     </tfoot>
