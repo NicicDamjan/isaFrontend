@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HotelService } from './../../shared-service/hotel.service';
 import {AbstractControl, FormBuilder, FormGroup} from '@angular/forms';
 import { RouterModule, Routes, Router } from '@angular/router';
+import {UserService} from './../../shared-service/user.service';
+import {User} from '../../user';
 
 
 @Component({
@@ -16,12 +18,15 @@ export class ListhotelComponent implements OnInit {
   asc = true;
   searchText = '';
 
+  public activeUser: User;
+
   public form: FormGroup;
   public search: AbstractControl;
   public checkInDate: AbstractControl;
   public checkOutDate: AbstractControl;
 
   constructor(
+     private _userService: UserService,
      private hotelService: HotelService, protected router: Router,
      private fb: FormBuilder) {
 
@@ -37,6 +42,7 @@ export class ListhotelComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._userService.getActiveUser().subscribe((data) => {this.activeUser = data; });
     this.getHotels();
   }
 
