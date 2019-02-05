@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import {UserService} from'../../shared-service/user.service';
+import {UserService} from '../../shared-service/user.service';
 import {User} from '../../user';
 import { Router } from '@angular/router';
 
@@ -11,24 +11,20 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-    public activeUser:User;
+    public activeUser: User;
 
-    constructor(private _userService:UserService,private _router: Router) {  }
+    constructor(private _userService: UserService, private _router: Router) {  }
 
-    urlImg = '../../../assets/images/logo.png'
+    urlImg = '../../../assets/images/logo.png';
 
     ngOnInit() {
 
-        this._userService.getActiveUser().subscribe((data)=>{this.activeUser=data;
-
-
-
-
+        this._userService.getActiveUser().subscribe((data) => {this.activeUser = data;
 
         });
     }
 
-    deleteActUser(){
+    deleteActUser() {
 
         this._userService.deleteActiveUser();
         window.location.reload(true);

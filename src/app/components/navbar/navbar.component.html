@@ -26,7 +26,7 @@
             <a class="nav-link" [routerLink]="['/reservation']" [routerLinkActive]="['is-active']">Reservation</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Settings</a>
+            <a *ngIf="activeUser?.role==='ADMIN'" class="nav-link" href="">Settings</a>
           </li>
           <li class="nav-item">
               <button class="nav-link btn-link" [routerLink]="['/dashboard']" (click)="deleteActUser()"  >Logout</button>
