@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { HotelService } from './../../shared-service/hotel.service';
 import {Hotel} from '../../hotel';
+import {UserService} from './../../shared-service/user.service';
+import {User} from '../../user';
 
 @Component({
   selector: 'app-hotel-services',
@@ -12,12 +14,17 @@ export class HotelServicesComponent implements OnInit {
 
   items: HotelService[] = [];
   hotelId: number;
+  public activeUser: User;
+  public hotelAdmin: string;
 
-  constructor(protected router: Router, private route: ActivatedRoute, private hotelServis: HotelService) { }
+  constructor(private _userService: UserService,
+    protected router: Router, private route: ActivatedRoute, private hotelServis: HotelService) { }
 
   ngOnInit() {
+    this._userService.getActiveUser().subscribe((data) => {this.activeUser = data; });
     this.hotelId = this.route.snapshot.params.id;
     this.getServices(this.hotelId);
+    this.hotelServis.getHotel(this.hotelId).subscribe(res => {this.hotelAdmin = res.admin; });
   }
 
   getServices(id: number) {
