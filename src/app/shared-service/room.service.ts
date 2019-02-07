@@ -34,4 +34,10 @@ export class RoomService {
     return this.http.post(`${this.BASE_URL}/hotels/` + id + '/rooms', body, {headers: headers} );
   }
 
+  getFreeRooms(id: number, from: String, until: String): Observable<any> {
+    return this.http.get(`${this.BASE_URL}/` + id + '/' + from + '/' + until, httpOptions);
+  }
+  getFreeRoomsOnDiscount(hotelId: number, from: String, until: String): Observable<any> {
+    return this.http.get('/rooms-on-discount/' + hotelId + '/' + from + '/' + until);
+  }
 }
