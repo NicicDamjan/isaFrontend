@@ -85,6 +85,7 @@ import { DestinationsComponent } from './components/destinations/destinations.co
 import { AirlineServicesComponent } from './components/airline-services/airline-services.component';
 import { AddAirlineServiceComponent } from './components/add-airline-service/add-airline-service.component';
 import { AddAirlineConfigurationComponent } from './components/add-airline-configuration/add-airline-configuration.component';
+import { FlightProfileComponent } from './components/flight-profile/flight-profile.component';
 
 
 
@@ -155,6 +156,7 @@ enableProdMode();
     AirlineServicesComponent,
     AddAirlineServiceComponent,
     AddAirlineConfigurationComponent,
+    FlightProfileComponent,
 
 
 
