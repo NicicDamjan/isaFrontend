@@ -1,5 +1,6 @@
 import {Destination} from './Destination';
 import {FlightStops} from './flightStops';
+import {Seat} from './seat';
 
 export class Flight {
 
@@ -14,4 +15,6 @@ export class Flight {
  public ticketPrice: number;
  public flightStops: FlightStops[];
  public seatNumber: number;
+ public seats: Seat[];
+ public airlineId: number;
 }
