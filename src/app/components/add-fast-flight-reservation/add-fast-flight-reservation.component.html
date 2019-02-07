@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div style="display: inline-block; margin-left: 20px; margin-top: 20px;">
+
+    <table id="cssTable" style=" margin-top: 35px; width: auto; border: darkslategrey;" class="table table-striped">
+      <thead>
+      <tr style="text-align: center">
+
+        <th scope="col"></th>
+        <th scope="col">Datum polaska</th>
+        <th scope="col">Datum dolaska</th>
+        <th scope="col">Trajanje leta</th>
+        <th  scope="col">Od</th>
+        <th  scope="col">Do</th>
+        <th scope="col">Broj presedanja</th>
+        <th scope="col">Duzina</th>
+        <th scope="col">Cena karte</th>
+        <th scope="col"></th>
+      </tr>
+
+      </thead>
+
+      <tbody style="text-align: center; vertical-align: middle">
+
+      <tr *ngFor="let flight of flights" style="text-align: center">
+
+        <td> <img style="width: 50px; height: 50px;" src="../../assets/images/baseline_flight_black_18dp.png"></td>
+        <td  style="text-align: center;">
+          {{flight.takeOff | date}}<br>
+          {{flight.takeOff | date : 'shortTime'}}<br>
+          <b>{{flight.fromDest.nick}}</b>
+        </td>
+        <td style="text-align: center">
+          {{ flight.landing | date }}<br>
+          {{ flight.landing | date : 'shortTime' }}<br>
+          <b>{{flight.toDest.nick}}</b>
+        </td>
+
+
+        <td>
+          {{ flight.duration/60 | number : '1.0-0' }}h
+          {{ generate(flight.duration/60)}} min
+        </td>
+
+        <td>
+          {{flight.fromDest.city}}<br>
+          {{flight.fromDest.name}}
+        </td>
+
+        <td>
+          {{flight.toDest.city}}<br>
+          {{flight.toDest.name}}
+        </td>
+        <td>
+          <div *ngFor="let stop of flight.flightStops">
+            <label><b> {{stop.destStop.state}} </b></label>
+            <label> {{stop.destStop.name}} </label>
+          </div>
+        </td>
+        <td>
+          {{flight.length}}KM
+        </td>
+
+        <td>
+          {{flight.ticketPrice}}EUR
+        </td>
+        <td>
+          <button class="btn bnt-dark" (click)="addTicket(flight.id)">Odaberi</button>
+        </td>
+      </tr>
+
+      </tbody>
+
+
+    </table>
+
+  </div>
+
+</div>

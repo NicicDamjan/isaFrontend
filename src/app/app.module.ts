@@ -93,6 +93,11 @@ import { IndexComponent } from './components/index/index.component';
 import { DisplayAllHotelsForReservationComponent } from './components/display-all-hotels-for-reservation/display-all-hotels-for-reservation.component';
 import { FastHotelResComponent } from './components/fast-hotel-res/fast-hotel-res.component';
 import { HotelReservationComponent } from './components/hotel-reservation/hotel-reservation.component';
+import { FastFlightReservationsComponent } from './components/fast-flight-reservations/fast-flight-reservations.component';
+import {AccountService} from './shared-service/account.service';
+import { FastFlightReservationsService } from './shared-service/fast-flight-reservations.service';
+import { AddFastFlightReservationComponent } from './components/add-fast-flight-reservation/add-fast-flight-reservation.component';
+
 
 
 const appRoutes: Routes = [
@@ -137,6 +142,8 @@ const appRoutes: Routes = [
   {path: 'airlines/:id/flights/:flightId', component: FlightProfileComponent},
   {path: 'addSeats', component: AddSeatsComponent},
   {path: 'flightReservation', component: FlightReservationComponent},
+  {path: 'fastFlightReservations', component: FastFlightReservationsComponent},
+  {path: 'addfastFlightReservations', component: AddFastFlightReservationComponent},
 
 
 
@@ -180,6 +187,8 @@ enableProdMode();
     DisplayAllHotelsForReservationComponent,
     FastHotelResComponent,
     HotelReservationComponent,
+    FastFlightReservationsComponent,
+    AddFastFlightReservationComponent,
 
 
 
@@ -230,7 +239,7 @@ enableProdMode();
   ],
   providers: [ LocationService, HotelService, FriendsService,
      UserService, HttpModule, DatePipe, AirlineService, FlightService,
-    RoomService, DestinationService, SeatService],
+    RoomService, DestinationService, SeatService, AccountService, FastFlightReservationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

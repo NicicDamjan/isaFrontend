@@ -1,0 +1,99 @@
+
+<button class="btn btn-dark" style="margin-top: 25px;" (click)="addTicket()">Dodaj kartu</button>
+
+<div class="container" style="text-align: center;">
+<!--<  style=" margin-top: 25px; text-align: center;  width: auto; height: auto;">-->
+
+  <div *ngIf="showAirline">
+    <h1  style="margin-bottom: 20px;">{{airline.name}}</h1>
+  </div>
+
+  <div style="text-align: center">
+  <label style="font-size: 30px; font-weight: bolder;">Brza rezervacija leta</label>
+  </div>
+
+  <div style="text-align: center; display: block">
+
+  </div>
+
+  <table class="table table-striped"  style=" margin-top: 35px; width: auto; border: darkslategrey;">
+
+    <thead>
+    <th scope="col" colspan="11" style="font-size: 25px;">Karte sa popustima</th>
+
+
+    </thead>
+
+    <tbody>
+
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Poletanje</th>
+      <th scope="col">Sletanje</th>
+      <th scope="col">Trajanje</th>
+      <th scope="col">Mesto poletanja</th>
+      <th scope="col">Mesto sletanje</th>
+      <th scope="col">Sediste</th>
+      <th scope="col">Cena</th>
+      <th scope="col">Popust</th>
+      <th scope="col">Ukupna cena</th>
+      <th scope="col">Klik za rezervaciju</th>
+    </tr>
+
+  <tr *ngFor="let ticket of fastModel" style="text-align: center;">
+
+
+    <td> <img style="width: 50px; height: 50px;" src="../../assets/images/baseline_flight_black_18dp.png"></td>
+    <td  style="text-align: center;">
+      {{ticket.flight.takeOff | date}}<br>
+      {{ticket.flight.takeOff | date : 'shortTime'}}<br>
+
+    </td>
+    <td style="text-align: center">
+      {{ ticket.flight.landing | date }}<br>
+      {{ ticket.flight.landing | date : 'shortTime' }}<br>
+    </td>
+
+    <td>
+      {{ ticket.flight.duration/60 | number : '1.0-0' }}h
+      {{ generate(ticket.flight.duration/60)}} min
+    </td>
+
+    <td>
+      {{ticket.flight.fromDest.city}}<br>
+      {{ticket.flight.fromDest.name}}<br>
+      <b>{{ticket.flight.fromDest.nick}}</b>
+    </td>
+
+      <td>
+        {{ticket.flight.toDest.city}}<br>
+        {{ticket.flight.toDest.name}}<br>
+        <b>{{ticket.flight.toDest.nick}}</b>
+      </td>
+
+    <td>
+      {{getCurrentSeat(ticket.flight, ticket.seat)}}<br>
+      Ukupno: {{ticket.flight.seats.length}}
+    </td>
+
+    <td>
+      {{ticket.price}} EUR
+    </td>
+
+    <td>
+      {{ticket.discount}} EUR
+    </td>
+
+    <td>
+      <b> {{ticket.finalPrice}} EUR </b>
+    </td>
+
+  <td>
+    <button class="btn btn-dark" (click)="reserve()"><b>Rezervisi</b></button>
+  </td>
+
+  </tr>
+
+    </tbody>
+  </table>
+</div>
