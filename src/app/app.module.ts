@@ -108,18 +108,22 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/rooms/:mode', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms', component: RoomComponent},
 
-{path: 'airlines', component: AirlinesComponent},
-{path: 'airlines/:id', component: AirlineProfileComponent},
-{path: 'flights', component: FlightsComponent},
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
-{path: 'addFlight', component: AddFlightComponent},
-{path: 'addDestinations', component: AddDestinationComponent },
-{path: 'destinations', component: DestinationsComponent },
-{path: 'services', component: AirlineServicesComponent},
-{path: 'addAirlineService', component: AddAirlineServiceComponent},
-{path: 'addAirlineConfiguration', component: AddAirlineConfigurationComponent},
 
 
+  {path: 'airlines', component: AirlinesComponent},
+  {path: 'airlines/:id', component: AirlineProfileComponent},
+  {path: 'airlines/:id/flights', component: FlightsComponent},
+  {path: 'airlines/:id/flights/addFlight', component: AddFlightComponent},
+  {path: 'airlines/:id/destinations/:mode', component: AddDestinationComponent },
+  {path: 'airlines/:id/destinations/:mode/:destId', component: AddDestinationComponent },
+  {path: 'airlines/:id/destinations', component: DestinationsComponent},
+  {path: 'airlines/:id/services', component: AirlineServicesComponent},
+  {path: 'airlines/:id/services/:mode', component: AddAirlineServiceComponent},
+  {path: 'airlines/:id/services/:mode/:serviceId', component: AddAirlineServiceComponent},
+  {path: 'airlines/:id/configuration/:mode', component: AddAirlineConfigurationComponent},
+  {path: 'airlines/:id/configuration/:mode/:confId', component: AddAirlineConfigurationComponent},
+  //{path: 'airlines/:id/flights/:flightId', component: FlightProfileComponent},
 
 
 

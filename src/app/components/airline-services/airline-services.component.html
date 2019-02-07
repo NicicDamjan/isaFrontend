@@ -1,9 +1,8 @@
-
-<button class="btn btn-primary" (click)="addService(id)">Dodaj uslugu</button>
-<div class="jumbotron" style="background-color: white; text-align: center; width: 60%; margin-top: 25px; border-color: lightslategray;  height: auto; border-radius: 25px; border-style: solid;">
+<div class="jumbotron" style="background-color: white; text-align: center; width: 60%; margin-top: 25px;margin-left: 20%; border-color: lightslategray;  height: auto;">
   <div style="text-align: center">
   <label style="font-size: 35px; font-weight: bolder">{{airline.name}} Usluge </label>
-  <table id="cssTable" style=" margin-top: 35px; margin-left: 65px; width: auto; border: darkslategrey;" class="table table-striped">
+  <button class="btn btn-primary" (click)="addService(id)">Dodaj uslugu</button>
+  <table id="cssTable" style=" margin-top: 35px; margin-left: 65px; width: auto; border: darkslategrey;" class="table table-dark tableRoom">
     <thead>
     <tr style="text-align: center">
 
@@ -24,8 +23,8 @@
       <td>{{service.price}}EUR
 
       <td>
-        <button class="btn bnt-default" style="border-color: gray" (click)="editService(service.id)">Izmeni</button><br>
-        <button class="btn bnt-default" style="border-color: gray" (click)="deleteService(service.id)">Obrisi</button>
+        <button  (click)="editService(service.id)"><i class="fa fa-edit"></i></button>
+        <button (click)="deleteService(service.id)"><i class="fa fa-trash"></i></button>
       </td>
     </tr>
 
@@ -34,7 +33,7 @@
 
   </table>
   </div>
-  <button class="btn bnt-default" style="border-color: gray" (click)="back()">Nazad</button>
+  <button class="btn btn-danger" style="border-color: gray" (click)="back()">Nazad</button>
 </div>
 
 

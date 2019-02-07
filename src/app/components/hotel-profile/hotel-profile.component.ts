@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Hotel} from '../../hotel';
 import {forEach} from '@angular/router/src/utils/collection';
+import {UserService} from './../../shared-service/user.service';
+import {User} from '../../user';
 
 @Component({
   selector: 'app-hotel-profile',
@@ -15,10 +17,13 @@ export class HotelProfileComponent implements OnInit {
   pomAdresa: string[];
   pomGrad: string[];
   pomDrz: string[];
+  public activeUser: User;
 
-  constructor(protected router: Router, private hotelService: HotelService, private route: ActivatedRoute) { }
+  constructor(private _userService: UserService,
+    protected router: Router, private hotelService: HotelService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this._userService.getActiveUser().subscribe((data) => {this.activeUser = data; });
     this.id = this.route.snapshot.params.id;
     this.getHotel(this.id);
   }

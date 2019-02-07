@@ -30,8 +30,8 @@
   <div class="container">
     <div class="content-section-heading text-center">
       <h3 class="text-secondary mb-0">Hotel</h3>
-      <h2 class="mb-5">{{hotel.name}}
-        <button class="btn btn-dark text-right" (click)="editHotel(hotel.id)"><i class="fa fa-edit" style="color: aliceblue"></i></button>
+      <h2 class="mb-5">{{hotel?.name}}
+        <button *ngIf="activeUser&&activeUser?.email===hotel?.admin" class="btn btn-dark text-right" (click)="editHotel(hotel.id)"><i class="fa fa-edit" style="color: aliceblue"></i></button>
       </h2>
     </div>
     <div class="row no-gutters">

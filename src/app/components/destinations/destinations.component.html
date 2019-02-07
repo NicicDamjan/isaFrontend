@@ -1,15 +1,15 @@
 
-<div class="jumbotron" style="width: 70%; text-align: center ; margin-top: 25px; border-color: lightslategray;  height: auto; border-radius: 25px; border-style: solid;">
+<div class="jumbotron" style="background-image:url('../../../assets/images/destinations.jpg')  ;width: 70%; text-align: center ; margin-top: 25px;margin-left: 14%; border-color: lightslategray;  height: auto;">
 
   <h1 style="margin-bottom: 45px;">{{airline.name}}</h1>
 
-  <div *ngFor="let destination of destinations">
+  <div *ngFor="let destination of destinations" style="color:#ffff; background-color:rgba(0, 0, 0, 0.7);">
     <label style="font-size: 18px; font-weight: bolder">{{destination.name}}</label> -
     <label style="font-size: 18px; font-weight: bolder">{{destination.city}}(</label>
     <label style="font-size: 18px; font-weight: bolder">{{destination.state}})</label>
 
-    <button class="btn btn-primary" (click)="editDest(destination.id)">Izmeni</button>
-    <button class="btn btn-primary" (click)="obrisi(destination.id)">Obrisi</button>
+    <button class="btn btn-warning" (click)="editDest(destination.id)">Izmeni</button>
+    <button class="btn btn-danger" (click)="obrisi(destination.id)">Obrisi</button>
   </div>
 
   <button class="btn btn-primary" (click)="addDest()">Dodaj</button>

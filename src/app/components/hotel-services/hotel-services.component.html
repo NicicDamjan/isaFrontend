@@ -17,14 +17,14 @@
                               <td >{{r.name}}</td>
                               <td >{{r.cost}}</td>
                               <td>
-                                <button class="btn btn-dark" (click)="editHotelService(r.id)"><i class="fa fa-edit" style="color: aliceblue"></i></button>
-                                <button class="btn btn-secondary" (click)="deleteService(r.id)"><i class="fa fa-trash"  style="color: aliceblue"></i></button>
+                                <button *ngIf="activeUser&&activeUser?.email===hotelAdmin" class="btn btn-dark" (click)="editHotelService(r.id)"><i class="fa fa-edit" style="color: aliceblue"></i></button>
+                                <button *ngIf="activeUser&&activeUser?.email===hotelAdmin" class="btn btn-secondary" (click)="deleteService(r.id)"><i class="fa fa-trash"  style="color: aliceblue"></i></button>
                               </td>
                           </tr>
                       </table>
                   </div>
                   <div class="panel-footer panel-footer-landing">
-                      <button *ngIf="hotelId" class="btn btn-price btn-success btn-lg" (click)="addHotelService()">Dodaj</button>
+                      <button *ngIf="hotelId&&activeUser&&activeUser?.email===hotelAdmin"  class="btn btn-price btn-success btn-lg" (click)="addHotelService()">Dodaj</button>
                       <button class="btn btn-price btn-secondary btn-lg" (click)="back()">Nazad</button>
                   </div>
               </div>
