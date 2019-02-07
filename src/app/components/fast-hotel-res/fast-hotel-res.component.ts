@@ -17,7 +17,7 @@ import { HotelService } from './../../shared-service/hotel.service';
 export class FastHotelResComponent implements OnInit {
 
   rooms: RoomOnDiscount[];
-  items: HotelService[];
+  items: HotelServiceModel[];
   hotelId: number;
   resId: number;
   totalCost = 0;
@@ -51,7 +51,7 @@ this.checkOutDate = this.form.controls['checkOutDate'];
     this.resId = this.route.snapshot.params.resId;
     this.hotelId = this.route.snapshot.params.hotelId;
    // this.userLogged = this.accountService.getLoggedUser();
-    this.flightService.getFlightReservationCost(this.resId).subscribe(
+   /* this.flightService.getFlightReservationCost(this.resId).subscribe(
       res => {
         this.totalFlightCost = res;
         this.totalCost = this.totalCost + this.totalFlightCost;
@@ -59,7 +59,7 @@ this.checkOutDate = this.form.controls['checkOutDate'];
       error => {
         console.log('Doslo je do greske.');
       }
-    );
+    );*/
   }
 
 
