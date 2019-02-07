@@ -86,6 +86,8 @@ import { AirlineServicesComponent } from './components/airline-services/airline-
 import { AddAirlineServiceComponent } from './components/add-airline-service/add-airline-service.component';
 import { AddAirlineConfigurationComponent } from './components/add-airline-configuration/add-airline-configuration.component';
 import { FlightProfileComponent } from './components/flight-profile/flight-profile.component';
+import { AddSeatsComponent } from './components/add-seats/add-seats.component';
+import { SeatService } from './shared-service/seat-service.service';
 
 
 
@@ -123,7 +125,8 @@ const appRoutes: Routes = [
   {path: 'airlines/:id/services/:mode/:serviceId', component: AddAirlineServiceComponent},
   {path: 'airlines/:id/configuration/:mode', component: AddAirlineConfigurationComponent},
   {path: 'airlines/:id/configuration/:mode/:confId', component: AddAirlineConfigurationComponent},
-  //{path: 'airlines/:id/flights/:flightId', component: FlightProfileComponent},
+  {path: 'airlines/:id/flights/:flightId', component: FlightProfileComponent},
+  {path: 'addSeats', component: AddSeatsComponent},
 
 
 
@@ -161,6 +164,7 @@ enableProdMode();
     AddAirlineServiceComponent,
     AddAirlineConfigurationComponent,
     FlightProfileComponent,
+    AddSeatsComponent,
 
 
 
@@ -211,7 +215,7 @@ enableProdMode();
   ],
   providers: [ LocationService, HotelService, FriendsService,
      UserService, HttpModule, DatePipe, AirlineService, FlightService,
-    RoomService, DestinationService],
+    RoomService, DestinationService, SeatService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
