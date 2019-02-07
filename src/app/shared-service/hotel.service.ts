@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Hotel} from '../hotel';
+import {HotelReservation} from '../hotel-reservation';
+import { FastHotelReservation } from '../fastHotelRes';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'}),
@@ -78,11 +80,25 @@ export class HotelService {
 
 
     }
- /* reserveHotel(reservation: HotelReservation, id: number): Observable<any> {
-    const body = JSON.stringify(reservation);
-    return this.http.post('http://localhost:8080/api/user/hotel-reservations/new', body, httpOptions);
+    reserveHotel(reservation: HotelReservation, id: number): Observable<any> {
+      const body = JSON.stringify(reservation);
+      return this.http.post('http://localhost:8090/api/user/hotel-reservations/new', body, httpOptions);
 
-  }*/
+    }
+
+    getHotelsByDestination(resId: number): Observable<any> {
+      return this.http.get(`${this.BASE_URL}/hotels-in/` + resId);
+    }
+
+    getExtraServicesOnDiscount(id: number): Observable<any> {
+        return this.http.get(`${this.BASE_URL}/rooms-on-discount/` + id);
+    }
+
+    makeFastHotelReservation( reservation: FastHotelReservation): Observable<any> {
+      const body = JSON.stringify(reservation);
+      return this.http.post('http://localhost:8090/api/user/hotel-fast-reservations/new', body, httpOptions);
+
+    }
 
 
 
