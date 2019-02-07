@@ -90,6 +90,8 @@ import { AddSeatsComponent } from './components/add-seats/add-seats.component';
 import { SeatService } from './shared-service/seat-service.service';
 import { FlightReservationComponent } from './components/flight-reservation/flight-reservation.component';
 import { IndexComponent } from './components/index/index.component';
+import { DisplayAllHotelsForReservationComponent } from './components/display-all-hotels-for-reservation/display-all-hotels-for-reservation.component';
+import { FastHotelResComponent } from './components/fast-hotel-res/fast-hotel-res.component';
 
 
 
@@ -113,6 +115,7 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/rooms', component: RoomComponent},
 
 {path: 'index', component: IndexComponent},
+{path: 'reservations/:id/hotels', component: DisplayAllHotelsForReservationComponent},
 
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
 
@@ -172,6 +175,8 @@ enableProdMode();
     AddSeatsComponent,
     FlightReservationComponent,
     IndexComponent,
+    DisplayAllHotelsForReservationComponent,
+    FastHotelResComponent,
 
 
 
