@@ -1,0 +1,24 @@
+<div class="container" style="font-weight: bolder">
+  <div class="jumbotron" style="width: 50%; text-align: center; margin-top: 25px; border-color: lightslategray;  height: 100%; border-radius: 25px; border-style: solid;">
+    <div>
+      <label class="" style="margin-bottom: 25px; font-size: 25px; font-weight: bold">
+        Unesite sedista:
+      </label>
+
+
+      <form [formGroup]="form">
+        <div class="form-group">
+
+          <label style="margin-bottom: 15px;">Unesite broj sedista za dodavanje:</label>
+          <input [formControl]="seatNumber" name="seatNumber" type="text" class="form-control" style="margin-left:120px;width: 250px;margin-bottom: 15px;">
+
+          <small class="form-text error" *ngIf="seatNumber.errors?.required && seatNumber.touched" style="color: red">
+            Obavezno polje!
+
+          </small>
+
+          <button (click)="unesi()" class="btn btn-primary" [disabled]="!form.valid" style="margin-top: 15px;">Unesi</button>
+
+        </div>
+      </form>
+    </div>
