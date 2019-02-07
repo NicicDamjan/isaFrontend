@@ -95,6 +95,7 @@ import { FastHotelResComponent } from './components/fast-hotel-res/fast-hotel-re
 import { FastFlightReservationsComponent } from './components/fast-flight-reservations/fast-flight-reservations.component';
 import {AccountService} from './shared-service/account.service';
 import { FastFlightReservationsService } from './shared-service/fast-flight-reservations.service';
+import { AddFastFlightReservationComponent } from './components/add-fast-flight-reservation/add-fast-flight-reservation.component';
 
 
 
@@ -139,6 +140,7 @@ const appRoutes: Routes = [
   {path: 'addSeats', component: AddSeatsComponent},
   {path: 'flightReservation', component: FlightReservationComponent},
   {path: 'fastFlightReservations', component: FastFlightReservationsComponent},
+  {path: 'addfastFlightReservations', component: AddFastFlightReservationComponent},
 
 
 
@@ -182,6 +184,7 @@ enableProdMode();
     DisplayAllHotelsForReservationComponent,
     FastHotelResComponent,
     FastFlightReservationsComponent,
+    AddFastFlightReservationComponent,
 
 
 
