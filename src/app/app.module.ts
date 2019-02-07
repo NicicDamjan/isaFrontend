@@ -92,7 +92,7 @@ import { FlightReservationComponent } from './components/flight-reservation/flig
 import { IndexComponent } from './components/index/index.component';
 import { DisplayAllHotelsForReservationComponent } from './components/display-all-hotels-for-reservation/display-all-hotels-for-reservation.component';
 import { FastHotelResComponent } from './components/fast-hotel-res/fast-hotel-res.component';
-
+import { HotelReservationComponent } from './components/hotel-reservation/hotel-reservation.component';
 
 
 const appRoutes: Routes = [
@@ -113,9 +113,11 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/rooms/:mode/:roomId', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms/:mode', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms', component: RoomComponent},
+{path: 'reservations/hotel-reservation/:resId/:hotelId', component: HotelReservationComponent},
+{path: 'reservations/hotel-reservation/:resId/:hotelId/rooms-on-discount', component: FastHotelResComponent},
+{path: 'reservations/:id/hotels', component: DisplayAllHotelsForReservationComponent},
 
 {path: 'index', component: IndexComponent},
-{path: 'reservations/:id/hotels', component: DisplayAllHotelsForReservationComponent},
 
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
 
@@ -177,6 +179,7 @@ enableProdMode();
     IndexComponent,
     DisplayAllHotelsForReservationComponent,
     FastHotelResComponent,
+    HotelReservationComponent,
 
 
 

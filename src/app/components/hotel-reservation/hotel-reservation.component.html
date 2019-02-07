@@ -1,0 +1,143 @@
+<div [style.display]="rezervacijaTraje ? 'block' : 'none'">
+
+  <div class="row rounded container-fluid" style="margin-bottom: 4em; margin-top: 1em">
+      <div class="container-fluid formGroup col" >
+          <label>
+            Unesite period za koji Vam je potreban smestaj
+          </label>
+          <hr/>
+         <form [formGroup]= "form" >
+              <div class="form-row">
+                    <div class="col">
+                      <input type="date" class="form-control" [formControl]="checkInDate" name="checkInDate" id="input-checkIn"
+                              placeholder="Unesite datum dolaska">
+                      <small class="form-text error" *ngIf="checkInDate.errors?.required && checkInDate.touched" style="color: red">
+                        Ovo polje je obavezno za unos!
+                      </small>
+                    </div>
+                    <div class="col">
+                      <input type="date" class="form-control" [formControl]="checkOutDate" name="checkOutDate" id="input-checkOut"
+                              placeholder="Unesite datum odlaska">
+                      <small class="form-text error" *ngIf="checkOutDate.errors?.required && checkOutDate.touched" style="color: red">
+                        Ovo polje je obavezno za unos!
+                      </small>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-dark" (click)="serachRooms()" [disabled]="!form.valid"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-dark" (click)="refresh()" style="margin-left: 0.5em"><i class="fa fa-refresh"></i></button>
+                  </div>
+
+              </div>
+         </form>
+      </div>
+      <p>
+        <button class="btn btn-dark" (click)="serachDiscountRooms()">Sobbe na popustu</button>
+      </p>
+
+  </div>
+
+
+  <div class="container-fluid" id="sobeTabela" [style.display]="isSobeVisible ? 'block' : 'none'">
+  <table class="table table-bordered" *ngIf="rooms">
+    <thead>
+    <tr>
+      <th>Tip</th>
+      <th>Kapacitet</th>
+      <th>Sprat</th>
+      <th>Balkon</th>
+      <th>Cena za noc</th>
+      <th>Cena vazi od</th>
+      <th>Cena vazi do</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of rooms">
+        <td>{{r.roomType}}</td>
+        <td>{{r.capacity}}</td>
+        <td>{{r.floor}}</td>
+        <td>{{r.balkon}}</td>
+        <td>{{r.costPerNight | currency: 'EUR'}}</td>
+        <td>{{r.costValidFrom | date: 'dd/MM/yyyy'}} </td>
+        <td>{{r.costValidUntil | date: 'dd/MM/yyyy'}}</td>
+        <td>
+          <input type="checkbox" id="{{r.id}}" (change)="roomChanged(r)">
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+    <tr>
+      <td colspan="6"></td>
+      <td>
+
+      </td>
+      <td>
+        <button class="btn btn-dark" (click)="next()" [disabled]="!mozeDalje">Dalje</button>
+      </td>
+    </tr>
+    </tfoot>
+  </table>
+</div>
+
+  <div class="container-fluid" id="uslugeTabela" [style.display]="isUslugeVisible ? 'block' : 'none'">
+    <label style="margin-top: 1em; margin-bottom: 1em;">Selektujte ddatne hotelske usluge. Ako ne zelite dodatne uslugekliknite na POTVRDI.</label>
+    <table class="table table-bordered" *ngIf="items">
+      <thead>
+      <tr>
+        <th>Naziv</th>
+        <th>Cena po danu</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.cost | currency: 'EUR'}}</td>
+        <td>
+          <input type="checkbox" id="{{item.id}}" (change)="serviceChanged(item)">
+        </td>
+
+      </tr>
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+
+    <div class="row">
+      <button class="btn btn-dark" (click)="backToRooms()">Nazad</button>
+      <button class="btn btn-dark" (click)="addServices()">Potvrdi</button>
+    </div>
+  </div>
+
+<div class="container-fluid rounded" id="totalCost" style="border: dimgray; margin-top: 2em">
+  <hr/>
+  <div>
+    <label>Let:&nbsp;&nbsp;&nbsp;&nbsp;{{totalFlightCost | currency: 'EUR'}}</label><br>
+    <label>Smestaj:&nbsp;&nbsp;&nbsp;&nbsp;{{totalRoomCost | currency: 'EUR'}}</label><br>
+    <label>Dodatne usluge:&nbsp;&nbsp;&nbsp;&nbsp;{{additionalServicesCost | currency:'EUR'}}</label>
+    <hr style="color: dimgrey">
+  </div>
+  <div>
+    <label><b>UKUPNO:</b><p style="color: red;"><b>{{totalCost | currency: 'EUR'}}</b></p></label>
+
+  </div>
+  <button class="btn btn-dark" (click)="reserveFinally()" id="btnReserve" [style.display]="isBtnVisible ? 'block' : 'none'">Potvrdi</button>
+
+</div>
+
+</div>
+
+<div style="text-align: center; margin: 2em,2em,2em,2m; font-style: italic"  [style.display]="rezervacijaGotova ? 'block' : 'none'">
+<p>
+  Uspesno ste izvrsili rezervaciju smestaja!
+</p>
+<p>
+  <button class="btn btn-dark">Rezervisi vozilo</button>
+  <button class="btn btn-dark" (click) = "index()">Vrati se na pocetak</button>
+</p>
+</div>
+
+
+
+

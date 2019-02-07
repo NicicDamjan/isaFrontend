@@ -5,6 +5,7 @@ import {Room} from '../../Room';
 import {UserService} from './../../shared-service/user.service';
 import {User} from '../../user';
 import { HotelService } from './../../shared-service/hotel.service';
+import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-room',
@@ -17,9 +18,22 @@ export class RoomComponent implements OnInit {
   hotelId: number;
   public activeUser: User;
   public hotelAdmin: string;
+  freeRooms: Room[] = [];
+  public form: FormGroup;
+  public dolazak: AbstractControl;
+  public  odlazak: AbstractControl;
+
 
   constructor(private _userService: UserService, private hotelServis: HotelService,
-    protected router: Router, private roomService: RoomService,  private route: ActivatedRoute) { }
+    protected router: Router, private roomService: RoomService,  private route: ActivatedRoute, private fb: FormBuilder) {
+      this.form  = this.fb.group({
+        'dolazak': ['',  Validators.compose([Validators.required])],
+        'odlazak': ['',  Validators.compose([Validators.required])]
+      });
+
+      this.dolazak = this.form.controls['dolazak'];
+      this.odlazak = this.form.controls['odlazak'];
+     }
 
   ngOnInit() {
     this.hotelId = this.route.snapshot.params.id;
@@ -59,5 +73,25 @@ export class RoomComponent implements OnInit {
     );
   }
 
-}
+  execute() {
+   /* let i = 0;
+        for (i = 0; i < this.rooms.length; i++) {
+            const r = this.rooms[i];
+              if ( r.reserved == false
+               // || ( r.reservedFrom < this.dolazak.value  && r.reservedUntil < this.dolazak.value )
+               // ||  r.reservedFrom > this.odlazak.value && r.reservedUntil > this.odlazak.value
+                ) {
+                    this.freeRooms.push(this.rooms[i]);
+              }
+        }
 
+        this.rooms = this.freeRooms;*/
+  }
+
+  refresh() {
+      this.dolazak.reset();
+      this.odlazak.reset();
+      this.getRooms(this.hotelId);
+  }
+
+}
