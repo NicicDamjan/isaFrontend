@@ -88,6 +88,8 @@ import { AddAirlineConfigurationComponent } from './components/add-airline-confi
 import { FlightProfileComponent } from './components/flight-profile/flight-profile.component';
 import { AddSeatsComponent } from './components/add-seats/add-seats.component';
 import { SeatService } from './shared-service/seat-service.service';
+import { DisplayAllHotelsForReservationComponent } from './components/display-all-hotels-for-reservation/display-all-hotels-for-reservation.component';
+import { FastHotelResComponent } from './components/fast-hotel-res/fast-hotel-res.component';
 
 
 
@@ -109,6 +111,8 @@ const appRoutes: Routes = [
 {path: 'hotels/:id/rooms/:mode/:roomId', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms/:mode', component: AddEditRoomComponent},
 {path: 'hotels/:id/rooms', component: RoomComponent},
+
+{path: 'reservations/:id/hotels', component: DisplayAllHotelsForReservationComponent},
 
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
 
@@ -165,6 +169,8 @@ enableProdMode();
     AddAirlineConfigurationComponent,
     FlightProfileComponent,
     AddSeatsComponent,
+    DisplayAllHotelsForReservationComponent,
+    FastHotelResComponent,
 
 
 
