@@ -41,6 +41,20 @@ createUser(u:any) {
   (data:any)=>{ alert(data.message);}
   )
   }
+
+  addAdmin(u:any) {
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const body = JSON.stringify(this.user);
+    console.log(this.user);
+    this.httpClient.post('http://localhost:8090/user/addSysAdmin',
+    {
+    email: u ,
+  })
+    .subscribe(
+    (data:any)=>{ alert(data.message);}
+    )
+    }
+
   editUser(u:any) {
 
     this.user=u;
@@ -60,6 +74,22 @@ createUser(u:any) {
     )
     }
 
+    changeAdminPassword(u:any){
+      this.user=u;
+    const headers = new Headers({'Content-Type': 'application/json'});
+    const body = JSON.stringify(this.user);
+    console.log(this.user);
+    this.httpClient.post('http://localhost:8090/user/returnUserRole',
+    {
+    password1:this.user.password1,
+    password2:this.user.password2,
+    })
+    .subscribe(
+    (data:any)=>{ alert(data.message);}
+    )
+
+    }
+
   confirmEmail(token:any){
     console.log('TOKEN:'+ token);
     this.httpClient.post('http://localhost:8090/user/confirmEmail?token='+token,{})
@@ -70,23 +100,15 @@ createUser(u:any) {
 
 
 
-  loginUser(u:any) {
+  loginUser(u:any): Observable<any>  {
     this.user=u;
     const headers = new Headers({'Content-Type': 'application/json'});
     const body = JSON.stringify(this.user);
     console.log(this.user);
-    this.httpClient.post('http://localhost:8090/user/login',
+    return this.httpClient.post('http://localhost:8090/user/login',
     {email:this.user.email,
      password1:this.user.password1
-    })
-    .subscribe(
-    (data:any)=>{
-      if(data!=null)
-        alert('Uspesno logovanje ' + data.email);
-      else
-        alert('Logovanje nije uspesno!');
-     }
-    )
+    });
   }
 
   getUser(): Observable<any>{

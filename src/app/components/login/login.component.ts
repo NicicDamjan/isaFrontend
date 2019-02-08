@@ -32,9 +32,20 @@ export class LoginComponent implements OnInit {
   loginForm(){
     let loginfields = this.form.value;
     console.log("stigao login");
-    this._userService.loginUser(loginfields);
-    window.location.reload(true);
-    this._router.navigateByUrl("/");
+    this._userService.loginUser(loginfields).subscribe(
+      (data:any)=>{
+        if(data.role === "USER1"){
+          alert('Zdravo Hotel Admine, ovo je tvoje prvo logovanje, moras da promenis sifru!');
+          this._router.navigateByUrl("change-password");
+        } else if (data.role != null ) {
+          alert('Uspesno logovanje ' + data.email);
+          window.location.reload(true);
+          this._router.navigateByUrl("/");
+        } else {
+          alert('Logovanje nije uspesno!');
+        }
+       }
+      );
   }
 
 

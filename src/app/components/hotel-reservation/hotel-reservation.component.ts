@@ -10,6 +10,8 @@ import { FlightReservation } from '../../flightReservation';
 import { FlightService } from './../../shared-service/flight.service';
 import { AccountService } from './../../shared-service/account.service';
 import { error } from 'util';
+import {UserService} from './../../shared-service/user.service';
+import {User} from '../../user';
 
 @Component({
   selector: 'app-hotel-reservation',
@@ -18,6 +20,7 @@ import { error } from 'util';
 })
 export class HotelReservationComponent implements OnInit {
 
+  public activeUser: User;
   rooms: Room[];
   items: HotelServiceModel[];
   hotelId: number;
@@ -40,7 +43,8 @@ export class HotelReservationComponent implements OnInit {
   public checkInDate: AbstractControl;
   public checkOutDate: AbstractControl;
 
-  constructor(protected router: Router, private roomService: RoomService,
+  constructor(private _userService: UserService,
+              protected router: Router, private roomService: RoomService,
               private route: ActivatedRoute,  private servis: HotelService,
               private fb: FormBuilder,
               private flightService: FlightService,
@@ -56,6 +60,7 @@ export class HotelReservationComponent implements OnInit {
 
   ngOnInit() {
     // 'reservations/hotel-reservation/:resId/:hotelId'
+    this._userService.getActiveUser().subscribe((data) => {this.activeUser = data; });
     this.reservation = new HotelReservation();
     this.resId = this.route.snapshot.params.resId;
     this.hotelId = this.route.snapshot.params.hotelId;

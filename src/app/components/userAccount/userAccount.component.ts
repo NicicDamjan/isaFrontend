@@ -28,11 +28,11 @@ export class UserAccount {
     constructor(private _userService:UserService,private _friendsService:FriendsService,route: ActivatedRoute) {  }
 
     ngOnInit() {
-        this._userService.getUser().subscribe((data)=>this.user=data) ;
+      
         this._userService.getActiveUser().subscribe((data)=>{this.activeUser=data; });//this.initFriends();
 
     }
-
+/*
     initFriends(){
 
         this._friendsService.getRequests(this.activeUser.id)
@@ -61,7 +61,7 @@ export class UserAccount {
         location.reload();
       }
 
-
+*/
 
 
       myFunction() {

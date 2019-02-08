@@ -74,18 +74,35 @@ export class RoomComponent implements OnInit {
   }
 
   execute() {
-   /* let i = 0;
+  /* let i = 0;
         for (i = 0; i < this.rooms.length; i++) {
             const r = this.rooms[i];
               if ( r.reserved == false
-               // || ( r.reservedFrom < this.dolazak.value  && r.reservedUntil < this.dolazak.value )
-               // ||  r.reservedFrom > this.odlazak.value && r.reservedUntil > this.odlazak.value
+                || ( r.reservedFrom < this.dolazak.value  && r.reservedUntil < this.dolazak.value )
+                ||  r.reservedFrom > this.odlazak.value && r.reservedUntil > this.odlazak.value
                 ) {
                     this.freeRooms.push(this.rooms[i]);
               }
-        }
+        }*/
+        const a = this.dolazak.value.toString().split('T');
+        const b = a[0];
+        const c = this.odlazak.value.toString().split('T');
+        const d = c[0];
 
-        this.rooms = this.freeRooms;*/
+        const pom = b.split('-');
+        const b1 = pom[2] + '-' + pom[1] + '-' + pom[0];
+
+        const pom2 = d.split('-');
+        const d1 = pom2[2] + '-' + pom2[1] + '-' + pom2[0];
+        this.roomService.getFreeRooms(this.hotelId, b1, d1).subscribe(
+          res => {
+            this.rooms = res;
+          },
+          error => {
+            alert('Doslo je do greske');
+          }
+
+        );
   }
 
   refresh() {
