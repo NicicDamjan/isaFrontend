@@ -8,6 +8,8 @@ import { RoomService } from './../../shared-service/room.service';
 import { FlightService } from './../../shared-service/flight.service';
 //import { AccountService } from './../../shared-service/account.service';
 import { HotelService } from './../../shared-service/hotel.service';
+import {UserService} from './../../shared-service/user.service';
+import {User} from '../../user';
 
 @Component({
   selector: 'app-fast-hotel-res',
@@ -31,8 +33,9 @@ export class FastHotelResComponent implements OnInit {
   public form: FormGroup;
   public checkInDate: AbstractControl;
   public checkOutDate: AbstractControl;
+  public activeUser: User;
 
-  constructor(protected router: Router, private roomService: RoomService,
+  constructor(private _userService: UserService, protected router: Router, private roomService: RoomService,
     private route: ActivatedRoute,  private servis: HotelService,
     private fb: FormBuilder,
     private flightService: FlightService,
@@ -47,6 +50,7 @@ this.checkInDate = this.form.controls['checkInDate'];
 this.checkOutDate = this.form.controls['checkOutDate'];
 }
   ngOnInit() {
+    this._userService.getActiveUser().subscribe((data) => {this.activeUser = data; });
     this.reservation = new FastHotelReservation();
     this.resId = this.route.snapshot.params.resId;
     this.hotelId = this.route.snapshot.params.hotelId;
@@ -126,11 +130,11 @@ this.checkOutDate = this.form.controls['checkOutDate'];
       this.reservation.total = 0;
       this.reservation.room = room.id;
       this.reservation.hotelId = room.hotelId;
-      this.reservation.username = this.userLogged.username;
-      for (let i = 0; i < this.items.length; ++i) {
+      //this.reservation.username = 'username';
+     /* for (let i = 0; i < this.items.length; ++i) {
             this.reservation.extraServices.push(this.items[i].id);
             this.reservation.total = this.reservation.total + (this.reservation.numberOfNights + 1) * this.items[i].cost;
-      }
+      }*/
 
       this.reservation.total = this.totalFlightCost + this.reservation.numberOfNights * room.costPerNight;
 
@@ -145,5 +149,9 @@ this.checkOutDate = this.form.controls['checkOutDate'];
       );
 
    }
+
+   index() {
+    this.router.navigateByUrl('');
+  }
 
 }

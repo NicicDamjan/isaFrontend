@@ -1,9 +1,9 @@
-<div [style.display]="rezervacijaTraje ? 'block' : 'none'">
+<div [style.display]="rezervacijaTraje ? 'block' : 'none'" style="background-image:url('../../../assets/images/room.jpg');">
 
   <div class="row rounded container-fluid" style="margin-bottom: 4em; margin-top: 1em">
       <div class="container-fluid formGroup col" >
           <label>
-            Unesite period za koji Vam je potreban smestaj
+
           </label>
           <hr/>
          <form [formGroup]= "form" >
@@ -23,24 +23,24 @@
                       </small>
                     </div>
                     <div class="col">
-                        <button class="btn btn-dark" (click)="serachRooms()" [disabled]="!form.valid"><i class="fa fa-search"></i></button>
-                        <button class="btn btn-dark" (click)="refresh()" style="margin-left: 0.5em"><i class="fa fa-refresh"></i></button>
+                        <button style="background-image:url('../../../assets/images/btn.gif');" class="btn btn-dark" (click)="serachDiscountRooms()">Sobe na popustu</button>
+                       <!-- <button class="btn btn-success" (click)="serachRooms()" [disabled]="!form.valid"><i class="fa fa-search"></i></button>-->
+                        <button class="btn btn-danger" (click)="refresh()" style="margin-left: 0.5em"><i class="fa fa-backspace"></i></button>
                   </div>
 
               </div>
          </form>
       </div>
       <p>
-        <button class="btn btn-dark" (click)="serachDiscountRooms()">Sobbe na popustu</button>
       </p>
 
   </div>
 
 
-  <div class="container-fluid" id="sobeTabela" [style.display]="isSobeVisible ? 'block' : 'none'">
-  <table class="table table-bordered" *ngIf="rooms">
+  <div class="container-fluid" id="sobeTabela" [style.display]="isSobeVisible ? 'block' : 'none'" style="background-image:url('../../../assets/images/room.jpg');">
+  <table class="table table-dark tableRoom" *ngIf="rooms">
     <thead>
-    <tr>
+    <tr class="textRoom">
       <th>Tip</th>
       <th>Kapacitet</th>
       <th>Sprat</th>
@@ -49,8 +49,7 @@
       <th>Cena sa popustom za noc</th>
       <th>Cena vazi od</th>
       <th>Cena vazi do</th>
-      <th></th>
-      <th></th>
+
     </tr>
     </thead>
     <tbody>
@@ -63,9 +62,9 @@
         <td>{{r.costPerNight | currency: 'EUR'}}</td>
         <td>{{r.costValidFrom | date: 'dd/MM/yyyy'}} </td>
         <td>{{r.costValidUntil | date: 'dd/MM/yyyy'}}</td>
-        <td><input type="button"  (click)="prikaziUsluge(r.id)" value="Usluge"></td>
+       <!-- <td><input type="button"  (click)="prikaziUsluge(r.id)" value="Usluge"></td>-->
         <td>
-          <input type="button"  (click)="rezervisiSobu(r)" value="Rezervisi">
+          <input type="button" style="background-color:green;" (click)="rezervisiSobu(r)" value="Rezervisi">
         </td>
       </tr>
     </tbody>
@@ -74,7 +73,7 @@
 </div>
 
   <div class="container-fluid" id="uslugeTabela" [style.display]="isUslugeVisible ? 'block' : 'none'">
-    <label style="margin-top: 1em; margin-bottom: 1em;">Selektujte ddatne hotelske usluge. Ako ne zelite dodatne uslugekliknite na POTVRDI.</label>
+    <label style="margin-top: 1em; margin-bottom: 1em;"></label>
     <table class="table table-bordered" *ngIf="items">
       <thead>
       <tr>
@@ -97,25 +96,24 @@
 
 <div class="container-fluid rounded" id="totalCost" style="border: dimgray; margin-top: 2em">
   <hr/>
-  <div>
+  <div class="textPrice">
     <label>Let:&nbsp;&nbsp;&nbsp;&nbsp;{{totalFlightCost | currency: 'EUR'}}</label><br>
     <label>Smestaj:&nbsp;&nbsp;&nbsp;&nbsp;{{totalRoomCost | currency: 'EUR'}}</label><br>
     <hr style="color: dimgrey">
   </div>
   <div>
-    <label><b>UKUPNO:</b><p style="color: red;"><b>{{totalCost | currency: 'EUR'}}</b></p></label>
+    <label><b class="textPrice">UKUPNO:</b><p  class="textRoom" style="color: red;"><b>{{totalCost | currency: 'EUR'}}</b></p></label>
 
   </div>
 </div>
 
 </div>
 
-<div style="text-align: center; margin: 2em,2em,2em,2m; font-style: italic"  [style.display]="rezervacijaGotova ? 'block' : 'none'">
-<p>
-  Uspesno ste izvrsili rezervaciju smestaja!
+<div style="background-image:url('../../../assets/images/fireworks.gif');text-align: center; margin: 2em,2em,2em,2m; font-style: italic"  [style.display]="rezervacijaGotova ? 'block' : 'none'">
+<p style="color:white;">
+  Uspesno ste izvrsili brzu rezervaciju smestaja!
 </p>
 <p>
-  <button class="btn btn-dark">Rezervisi vozilo</button>
-  <button class="btn btn-dark" (click) = "index()">Vrati se na pocetak</button>
+  <button class="btn btn-danger" (click) = "index()">Vrati se na pocetak</button>
 </p>
 </div>
