@@ -38,6 +38,6 @@ export class RoomService {
     return this.http.get(`${this.BASE_URL}/` + id + '/' + from + '/' + until, httpOptions);
   }
   getFreeRoomsOnDiscount(hotelId: number, from: String, until: String): Observable<any> {
-    return this.http.get('/rooms-on-discount/' + hotelId + '/' + from + '/' + until);
+    return this.http.get(`${this.BASE_URL}/rooms-on-discount/` + hotelId + '/' + from + '/' + until);
   }
 }

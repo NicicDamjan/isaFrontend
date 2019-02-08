@@ -111,4 +111,7 @@ export class RoomComponent implements OnInit {
       this.getRooms(this.hotelId);
   }
 
+  back() {
+    this.router.navigateByUrl('hotels/' + this.hotelId );
+  }
 }

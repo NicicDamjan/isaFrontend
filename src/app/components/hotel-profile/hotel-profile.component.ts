@@ -72,4 +72,8 @@ export class HotelProfileComponent implements OnInit {
   makeAReservation(id: number) {
     this.router.navigateByUrl('user/hotel-reservation/' + id);
   }
+
+  displayReservation() {
+    this.router.navigateByUrl('reservations/hotel-reservation/1/' + this.id);
+  }
 }

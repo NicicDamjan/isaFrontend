@@ -22,10 +22,10 @@
                 </div>
 
                 <div class="col-auto" >
-                   <button type="submit" class="btn btn-dark" (click)="execute()" [disabled]="!form.valid">
+                   <button type="submit" class="btn btn-success" (click)="execute()" [disabled]="!form.valid">
                       <i class="fa fa-search"></i>
                     </button>
-                  <button class="btn btn-dark" (click)="refresh()" style="margin-left: 0.5em"><i class="fas fa-backspace"></i></button>
+                  <button class="btn btn-danger" (click)="refresh()" style="margin-left: 0.5em"><i class="fas fa-backspace"></i></button>
                 </div>
               </div>
             </form>
@@ -55,7 +55,7 @@
       <td>{{r.costValidFrom | date: 'dd/MM/yyyy'}} </td>
       <td>{{r.costValidUntil | date: 'dd/MM/yyyy'}}</td>
       <td *ngIf="!r.reserved">
-        <input *ngIf="activeUser" type="checkbox">
+        <!--<input *ngIf="activeUser" type="checkbox">-->
         <button *ngIf="activeUser&&activeUser?.email===hotelAdmin" (click)="editRoom(r.id)"><i class="fa fa-edit"></i></button>
         <button *ngIf="activeUser&&activeUser?.email===hotelAdmin" (click)="deleteRoom(r.id)"><i class="fa fa-trash"></i></button>
       </td>
@@ -67,8 +67,8 @@
     <tr>
       <td colspan="4"></td>
       <td colspan="2">
-        <button *ngIf="activeUser" class="btn btn-dark">Rezervisi</button>
-        <button *ngIf="hotelId&&activeUser&&activeUser?.email===hotelAdmin" class="btn btn-dark" (click)="addNewRoom()">Dodaj sobu</button>
+        <button  class="btn btn-danger" (click)="back()">Nazad</button>
+        <button *ngIf="hotelId&&activeUser&&activeUser?.email===hotelAdmin" class="btn btn-success" (click)="addNewRoom()">Dodaj sobu</button>
       </td>
     </tr>
     </tfoot>
