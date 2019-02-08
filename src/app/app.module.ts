@@ -97,6 +97,8 @@ import { FastFlightReservationsComponent } from './components/fast-flight-reserv
 import {AccountService} from './shared-service/account.service';
 import { FastFlightReservationsService } from './shared-service/fast-flight-reservations.service';
 import { AddFastFlightReservationComponent } from './components/add-fast-flight-reservation/add-fast-flight-reservation.component';
+import { AdminSettingsComponent } from './components/admin-settings/admin-settings.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 
@@ -125,6 +127,9 @@ const appRoutes: Routes = [
 {path: 'index', component: IndexComponent},
 
 {path: 'system-admin/airlines', component: RegisterAirlineComponent},
+
+{path: 'system-admin/addAdmin', component: AdminSettingsComponent},
+{path: 'change-password', component: ChangePasswordComponent},
 
 
   {path: 'airlines', component: AirlinesComponent},
@@ -189,6 +194,8 @@ enableProdMode();
     HotelReservationComponent,
     FastFlightReservationsComponent,
     AddFastFlightReservationComponent,
+    AdminSettingsComponent,
+    ChangePasswordComponent,
 
 
 

@@ -1,0 +1,15 @@
+<p>
+  Dodaj sistem admina:
+</p>
+<form [formGroup]="form" (ngSubmit)="addAdmin()">
+<div class="col-md-5 form-group input-group">
+  <select  multiple class="form-control" id="admin" placeholder="admin"  formControlName="admin">
+    <ng-container *ngFor="let user of users">
+    <option  *ngIf="user.role==='USER'">{{user?.email}}</option>
+    </ng-container>
+  </select>
+</div>
+<div class="panel-footer padding-top-12 padding-top-10" align="center">
+  <button type="submit" class="btn btn-success">Dodaj sistem admina</button>
+</div>
+</form>
